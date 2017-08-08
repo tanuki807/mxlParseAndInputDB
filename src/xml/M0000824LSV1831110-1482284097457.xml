@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="EUC-KR" standalone="no"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+	<Metadata>
+		<AMS Asset_Class="package" Asset_ID="M0000824LSV183111000" Asset_Name="쏘빠때" Creation_Date="2016-09-19" Description="소재 : [쏘빠때/쏘빠때] Asset Package" Product="SVOD_SVOMS" Provider="골든타이드픽처스(주)" Provider_ID="www.hchoice.co.kr" Verb="" Version_Major="1" Version_Minor="0"></AMS>
+		<App_Data App="MOD" Name="Provider_Content_Tier" Value="CJMedia"></App_Data>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"></App_Data>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="골든타이드픽처스(주)" Provider_ID="www.hchoice.co.kr" Product="SVOD_SVOMS" Asset_Name="쏘빠때" Version_Major="1" Version_Minor="1" Description="소재 : [쏘빠때/쏘빠때]Asset Title" Creation_Date="2016-09-19" Asset_ID="M0000824LSV183111001" Asset_Class="title"></AMS>
+			<App_Data App="MOD" Name="Publication_Right" Value="TV"></App_Data>
+			<App_Data App="MOD" Name="Publication_Right" Value="인터넷"></App_Data>
+			<App_Data App="MOD" Name="Publication_Right" Value="모바일"></App_Data>
+			<App_Data App="MOD" Name="Type" Value="title"></App_Data>
+			<App_Data App="MOD" Name="Title" Value="쏘빠때"></App_Data>
+			<App_Data App="MOD" Name="Title_Brief" Value="M0000824LSV1831110"></App_Data>
+			<App_Data App="MOD" Name="Category" Value="월정액 전용관/무비n시리즈/19금 전용관"></App_Data>
+			<App_Data App="MOD" Name="Rating" Value="19"></App_Data>
+			<App_Data App="MOD" Name="Summary_Short" Value="상원과 민정은 오랜 연애 끝에 결혼한 신혼부부이다. 그래서인지, 상원은 부인인 민정에게는 성적 욕구를 느끼지 못하고, 그저 의무감으로만 섹스를 치른다. 그러던 어느 날, 너무도 예쁜 민정의 후배인 선주가 그들의 집에 잠시 머무르게 되는데..."></App_Data>
+			<App_Data App="MOD" Name="Run_Time" Value="01:12:20"></App_Data>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="01:12"></App_Data>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="yglee@hchoice.co.kr"></App_Data>
+			<App_Data App="MOD" Name="Billing_ID" Value="8854125666"></App_Data>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2016-09-20"></App_Data>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2019-11-16"></App_Data>
+			<App_Data App="MOD" Name="Preview_Period" Value="180"></App_Data>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="M0000824"></App_Data>
+			<App_Data App="MOD" Name="Episode_Name" Value="소재 : [쏘빠때/쏘빠때]"></App_Data>
+			<App_Data App="MOD" Name="Episode_id" Value="1"></App_Data>
+			<App_Data App="MOD" Name="Summary_Medium" Value="상원과 민정은 오랜 연애 끝에 결혼한 신혼부부이다. 그래서인지, 상원은 부인인 민정에게는 성적 욕구를 느끼지 못하고, 그저 의무감으로만 섹스를 치른다. 그러던 어느 날, 너무도 예쁜 민정의 후배인 선주가 그들의 집에 잠시 머무르게 되는데..."></App_Data>
+			<App_Data App="MOD" Name="Summary_Long" Value="상원과 민정은 오랜 연애 끝에 결혼한 신혼부부이다. 그래서인지, 상원은 부인인 민정에게는 성적 욕구를 느끼지 못하고, 그저 의무감으로만 섹스를 치른다. 그러던 어느 날, 너무도 예쁜 민정의 후배인 선주가 그들의 집에 잠시 머무르게 되는데..."></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="이규영"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="벅마잔"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="박혜린"></App_Data>
+			<App_Data App="MOD" Name="Actors_Display" Value="이규영,벅마잔,박혜린"></App_Data>
+			<App_Data App="MOD" Name="Chapter" Value="01:12:20:00,END"></App_Data>
+			<App_Data App="MOD" Name="Studio_Name" Value="영화_영화-에로틱_70"></App_Data>
+			<App_Data App="MOD" Name="Studio" Value="M0000824LSV1831110"></App_Data>
+			<App_Data App="MOD" Name="Advisories" Value="AL"></App_Data>
+			<App_Data App="MOD" Name="Advisories" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Season_Premiere" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Season_Finale" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Display_As_New" Value=""></App_Data>
+			<App_Data App="MOD" Name="Display_As_Last_Chance" Value=""></App_Data>
+			<App_Data App="MOD" Name="Subscriber_View_Limit" Value=""></App_Data>
+			<App_Data App="MOD" Name="Year" Value="1999"></App_Data>
+			<App_Data App="MOD" Name="Country_of_Origin" Value="대한민국"></App_Data>
+			<App_Data App="MOD" Name="Genre" Value="성인"></App_Data>
+			<App_Data App="MOD" Name="Maximum_Viewing_Length" Value="01:00:00"></App_Data>
+			<App_Data App="MOD" Name="Suggested_Price" Value="9900"></App_Data>
+			<App_Data App="MOD" Name="Propagation_Priority" Value="2"></App_Data>
+			<App_Data App="MOD" Name="LongTail_YN" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Percent" Value=""></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Minimum" Value=""></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Flat_Rate" Value=""></App_Data>
+			<App_Data App="MOD" Name="Director" Value="홍단"></App_Data>
+			<App_Data App="MOD" Name="Writer_Display" Value="홍단"></App_Data>
+			<App_Data App="MOD" Name="Producer" Value=""></App_Data>
+			<App_Data App="MOD" Name="Home_Video_Window" Value=""></App_Data>
+			<App_Data App="MOD" Name="Contract_Name" Value="CJMedia"></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Percent" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Minimum" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Flat_Rate" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Name" Value="CJMedia"></App_Data>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="골든타이드픽처스(주)" Provider_ID="www.hchoice.co.kr" Product="SVOD_SVOMS" Asset_Name="쏘빠때" Version_Major="1" Version_Minor="0" Description="쏘빠때 Asset Movie" Creation_Date="2016-09-19" Asset_ID="M0000824LSV183111008" Asset_Class="movie"></AMS>
+				<App_Data App="MOD" Name="Type" Value="movie"></App_Data>
+				<App_Data App="MOD" Name="Encryption" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Audio_Type" Value="STEREO"></App_Data>
+				<App_Data App="MOD" Name="Screen_Format" Value="SD"></App_Data>
+				<App_Data App="MOD" Name="Languages" Value=""></App_Data>
+				<App_Data App="MOD" Name="Subtitle_Languages" Value=""></App_Data>
+				<App_Data App="MOD" Name="Dubbed_Languages" Value="KO"></App_Data>
+				<App_Data App="MOD" Name="Copy_Protection" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Copy_Protection_Verbose" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Analog_Protection_System" Value="3"></App_Data>
+				<App_Data App="MOD" Name="Encryption_Mode_Indicator" Value="1"></App_Data>
+				<App_Data App="MOD" Name="Constrained_Image_Trigger" Value="0"></App_Data>
+				<App_Data App="MOD" Name="CGMS_A" Value="0"></App_Data>
+				<App_Data App="MOD" Name="HDContent" Value="N"></App_Data>
+				<App_Data App="MOD" Name="Content_FileSize" Value="2170185520"></App_Data>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="12558D3269D25852BD26548DC2654CA"></App_Data>
+			</Metadata>
+			<Content Value="M0000824.mpg"></Content>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="골든타이드픽처스(주)" Provider_ID="www.hchoice.co.kr" Product="SVOD_SVOMS" Asset_Name="쏘빠때" Version_Major="1" Version_Minor="0" Description="쏘빠때 Box Cover" Creation_Date="2016-09-19" Asset_ID="M0000824LSV183111010" Asset_Class="poster"/>
+				<App_Data App="MOD" Name="Type" Value="poster"/>
+				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value=""/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="52989"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="9C5E04BD6B6CFD62C8BEDBFE6678F708"/>
+			</Metadata>
+			<Content Value="M0000824.jpg"/>
+		</Asset>
+	</Asset>
+</ADI>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="EUC-KR" standalone="no"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+	<Metadata>
+		<AMS Asset_Class="package" Asset_ID="M0008471LSG657435300" Asset_Name="(SD)백댄서즈" Creation_Date="2017-06-28" Description="소재 : [(SD)백댄서즈/(SD)백댄서즈] Asset Package" Product="RVOD" Provider="(주)케이알씨지" Provider_ID="www.hchoice.co.kr" Verb="" Version_Major="1" Version_Minor="0"></AMS>
+		<App_Data App="MOD" Name="Provider_Content_Tier" Value="CJMedia"></App_Data>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"></App_Data>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Provider="(주)케이알씨지" Provider_ID="www.hchoice.co.kr" Product="RVOD" Asset_Name="(SD)백댄서즈" Version_Major="1" Version_Minor="1" Description="소재 : [(SD)백댄서즈/(SD)백댄서즈]Asset Title" Creation_Date="2017-06-28" Asset_ID="M0008471LSG657435301" Asset_Class="title"></AMS>
+			<App_Data App="MOD" Name="Publication_Right" Value="TV"></App_Data>
+			<App_Data App="MOD" Name="Publication_Right" Value="인터넷"></App_Data>
+			<App_Data App="MOD" Name="Publication_Right" Value="모바일"></App_Data>
+			<App_Data App="MOD" Name="Type" Value="title"></App_Data>
+			<App_Data App="MOD" Name="Title" Value="(SD)백댄서즈"></App_Data>
+			<App_Data App="MOD" Name="Title_Brief" Value="M0008471LSG6574353"></App_Data>
+			<App_Data App="MOD" Name="Category" Value="영화/외국 영화/드라마.로맨스/드라마"></App_Data>
+			<App_Data App="MOD" Name="Rating" Value="12"></App_Data>
+			<App_Data App="MOD" Name="Summary_Short" Value="인기 절정에 있는 가수 쥬리. 하지만 어느 날, 그녀는 돌연히 은퇴를 선언해 버린다. 이제 남은 것은 4명의 백댄서들뿐. 더 이상 설 곳을 잃어버린 이들 4명의 백댄서들은 신참 매니저와 함께 활동을 재개해보지만..."></App_Data>
+			<App_Data App="MOD" Name="Run_Time" Value="01:57:49"></App_Data>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="01:57"></App_Data>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="yglee@hchoice.co.kr"></App_Data>
+			<App_Data App="MOD" Name="Billing_ID" Value="B04496Rtuw"></App_Data>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2017-07-01"></App_Data>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2018-06-30"></App_Data>
+			<App_Data App="MOD" Name="Preview_Period" Value="180"></App_Data>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="M0008471"></App_Data>
+			<App_Data App="MOD" Name="Episode_Name" Value="소재 : [(SD)백댄서즈/(SD)백댄서즈]"></App_Data>
+			<App_Data App="MOD" Name="Episode_id" Value="1"></App_Data>
+			<App_Data App="MOD" Name="Summary_Medium" Value="인기 절정에 있는 가수 쥬리. 하지만 어느 날, 그녀는 돌연히 은퇴를 선언해 버린다. 이제 남은 것은 4명의 백댄서들뿐. 더 이상 설 곳을 잃어버린 이들 4명의 백댄서들은 신참 매니저와 함께 활동을 재개해보지만..."></App_Data>
+			<App_Data App="MOD" Name="Summary_Long" Value="인기 절정에 있는 가수 쥬리. 하지만 어느 날, 그녀는 돌연히 은퇴를 선언해 버린다. 이제 남은 것은 4명의 백댄서들뿐. 더 이상 설 곳을 잃어버린 이들 4명의 백댄서들은 신참 매니저와 함께 활동을 재개해보지만..."></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="시마부쿠로 히로코"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="히라야마 아야"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="소닌"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="사에코"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="다나카 케이"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="이시노 미코"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="진나이 타카노리"></App_Data>
+			<App_Data App="MOD" Name="Actors" Value="기무라 요시노"></App_Data>
+			<App_Data App="MOD" Name="Actors_Display" Value="시마부쿠로 히로코,히라야마 아야,소닌,사에코,다나카 케이,이시노 미코,진나이 타카노리,기무라 요시노"></App_Data>
+			<App_Data App="MOD" Name="Chapter" Value="01:57:49:20,END"></App_Data>
+			<App_Data App="MOD" Name="Studio_Name" Value="영화_영화-드라마_65"></App_Data>
+			<App_Data App="MOD" Name="Studio" Value="M0008471LSG6574353"></App_Data>
+			<App_Data App="MOD" Name="Advisories" Value="AL"></App_Data>
+			<App_Data App="MOD" Name="Advisories" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Season_Premiere" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Season_Finale" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Display_As_New" Value=""></App_Data>
+			<App_Data App="MOD" Name="Display_As_Last_Chance" Value=""></App_Data>
+			<App_Data App="MOD" Name="Subscriber_View_Limit" Value=""></App_Data>
+			<App_Data App="MOD" Name="Year" Value="2006"></App_Data>
+			<App_Data App="MOD" Name="Country_of_Origin" Value="일본"></App_Data>
+			<App_Data App="MOD" Name="Genre" Value="드라마"></App_Data>
+			<App_Data App="MOD" Name="Maximum_Viewing_Length" Value="03:00:00"></App_Data>
+			<App_Data App="MOD" Name="Suggested_Price" Value="1500"></App_Data>
+			<App_Data App="MOD" Name="Propagation_Priority" Value="2"></App_Data>
+			<App_Data App="MOD" Name="LongTail_YN" Value="N"></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Percent" Value=""></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Minimum" Value=""></App_Data>
+			<App_Data App="MOD" Name="Studio_Royalty_Flat_Rate" Value=""></App_Data>
+			<App_Data App="MOD" Name="Director" Value="나가야마 코조"></App_Data>
+			<App_Data App="MOD" Name="Writer_Display" Value="나가야마 코조"></App_Data>
+			<App_Data App="MOD" Name="Producer" Value=""></App_Data>
+			<App_Data App="MOD" Name="Home_Video_Window" Value=""></App_Data>
+			<App_Data App="MOD" Name="Contract_Name" Value="CJMedia"></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Percent" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Minimum" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Royalty_Flat_Rate" Value=""></App_Data>
+			<App_Data App="MOD" Name="Distributor_Name" Value="CJMedia"></App_Data>
+		</Metadata>
+		<Asset>
+			<Metadata>
+				<AMS Provider="(주)케이알씨지" Provider_ID="www.hchoice.co.kr" Product="RVOD" Asset_Name="(SD)백댄서즈" Version_Major="1" Version_Minor="0" Description="(SD)백댄서즈 Asset Movie" Creation_Date="2017-06-28" Asset_ID="M0008471LSG657435308" Asset_Class="movie"></AMS>
+				<App_Data App="MOD" Name="Type" Value="movie"></App_Data>
+				<App_Data App="MOD" Name="Encryption" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Audio_Type" Value="STEREO"></App_Data>
+				<App_Data App="MOD" Name="Screen_Format" Value="SD"></App_Data>
+				<App_Data App="MOD" Name="Languages" Value=""></App_Data>
+				<App_Data App="MOD" Name="Subtitle_Languages" Value=""></App_Data>
+				<App_Data App="MOD" Name="Dubbed_Languages" Value="KO"></App_Data>
+				<App_Data App="MOD" Name="Copy_Protection" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Copy_Protection_Verbose" Value="Y"></App_Data>
+				<App_Data App="MOD" Name="Analog_Protection_System" Value="3"></App_Data>
+				<App_Data App="MOD" Name="Encryption_Mode_Indicator" Value="1"></App_Data>
+				<App_Data App="MOD" Name="Constrained_Image_Trigger" Value="0"></App_Data>
+				<App_Data App="MOD" Name="CGMS_A" Value="0"></App_Data>
+				<App_Data App="MOD" Name="HDContent" Value="N"></App_Data>
+				<App_Data App="MOD" Name="Content_FileSize" Value="3365200298"></App_Data>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="12558D3269D25852BD26548DC2654CA"></App_Data>
+			</Metadata>
+			<Content Value="M0008471.mpg"></Content>
+		</Asset>
+		<Asset>
+			<Metadata>
+				<AMS Provider="(주)케이알씨지" Provider_ID="www.hchoice.co.kr" Product="RVOD" Asset_Name="(SD)백댄서즈" Version_Major="1" Version_Minor="0" Description="(SD)백댄서즈 Box Cover" Creation_Date="2017-06-28" Asset_ID="M0008471LSG657435310" Asset_Class="poster"/>
+				<App_Data App="MOD" Name="Type" Value="poster"/>
+				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value=""/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="69476"/>
+				<App_Data App="MOD" Name="Content_CheckSum" Value="C6343301E49C52F6F627F78CBE3B99FB"/>
+			</Metadata>
+			<Content Value="M0008471.jpg"/>
+		</Asset>
+	</Asset>
+</ADI>
