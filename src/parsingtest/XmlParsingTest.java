@@ -1,6 +1,7 @@
 package parsingtest;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,25 +18,48 @@ public class XmlParsingTest {
 	static DocumentBuilderFactory domFactoty;
 	static DocumentBuilder domBuilder;
 	static Document doc;
+	static File file;
+	static File[] files;
+	final static String filePath = "c:\\java_workspace\\xmlParse\\src\\xml";
 	
 	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException  {
 		domFactoty = DocumentBuilderFactory.newInstance();
 		domBuilder = domFactoty.newDocumentBuilder();
-		doc = domBuilder.parse(new File("src/xml/M0000824LSV1831110-1482284097457.xml"));
-		doc.normalize();
 		
-		System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
-
-		printNode("App_Data");
+		addFile();
 		
-		printNode("AMS");
+	}
+	
+	private static void addFile() throws IOException, SAXException {
+		file = new File(filePath);
+		if(!(file.exists() || file.isDirectory())){
+			System.out.println("file is not Directory");
+			System.exit(0);
+		}
 		
-		printNode("Content");
-
+		files = file.listFiles(new FilenameFilter() {
+			public boolean accept(File dir, String name) {
+				return name.lastIndexOf("xml") != -1;
+			}
+		});
+		
+		int count = 0;
+		for(int i=0; i < files.length; i++) {
+			String fileName = files[i].getAbsolutePath();
+			System.out.println();
+			System.out.println("no."+ ++count +" "+fileName);
+			doc = domBuilder.parse(fileName);
+			doc.normalize();
+			
+			System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
+			
+			printNode("App_Data");
+			printNode("AMS");
+			printNode("Content");
+		}
 	}
 	
 	private static void printNode(String tagName) {
-		System.out.println();
 		NodeList list = doc.getElementsByTagName(tagName);
 		System.out.println(tagName+"³ëµå ¼ö :"+list.getLength());
 		
