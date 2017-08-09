@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/com.springsource.org.junit-4.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/org.springframework.core-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/org.springframework.test-3.1.2.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
