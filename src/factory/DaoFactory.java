@@ -1,13 +1,16 @@
 package factory;
 
-import dao.XmlDao;
+import dao.AmsDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcConnectionMaker;
+import dbconnection.JdbcContext;
 
 public class DaoFactory {
+	private AmsDao dao = new AmsDao();
 	
-	public XmlDao xmlDao() {
-		return new XmlDao(connectionMaker());
+	public AmsDao amsDao() {
+		dao.setConnectionMaker(connectionMaker());
+		return dao;
 	}
 	
 	private ConnectionMaker connectionMaker() {

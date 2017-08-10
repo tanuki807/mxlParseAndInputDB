@@ -3,6 +3,7 @@ package xmlparse;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,8 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import dao.XmlDao;
-import domain.Xml;
+import dao.AmsDao;
+import dbconnection.NodeContext;
+import domain.Ams;
 import factory.DaoFactory;
 
 public class XmlParse {
@@ -26,7 +28,14 @@ public class XmlParse {
 	static File file;
 	static File[] files;
 	
-	public void addFile() throws IOException, SAXException, ParserConfigurationException {
+	private NodeContext nodeContext;
+	
+	public XmlParse() {
+		this.nodeContext = new NodeContext();
+	}
+	
+	public void addFile() throws IOException, SAXException, ParserConfigurationException, 
+	SQLException, ClassNotFoundException {
 		domFactoty = DocumentBuilderFactory.newInstance();
 		domBuilder = domFactoty.newDocumentBuilder();
 		
@@ -52,67 +61,28 @@ public class XmlParse {
 			
 			System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
 			
-			printNode("App_Data");
-			printNode("AMS");
-			printNode("Content");
+			inputWithPrintNode("App_Data");
+			inputWithPrintNode("AMS");
+			inputWithPrintNode("Content");
 		}
 	}
 	
-	private  void printNode(String tagName) {
+	
+	private  void inputWithPrintNode(String tagName) throws SQLException, ClassNotFoundException {
+		//String[] nodeArr = {"App_Data", "AMS", "Content"};
+//		for(int i=0; i < nodeArr.length; i++) {
+//			
+//		}
 		NodeList list = doc.getElementsByTagName(tagName);
 		System.out.println(tagName+"³ëµå ¼ö :"+list.getLength());
-		Xml xml = new Xml();
-		XmlDao dao = new DaoFactory().xmlDao();
+		Ams ams = new Ams();
+		AmsDao dao = new DaoFactory().amsDao();
 		
 	  switch (tagName) {
+	  
 		case "AMS":
-			for (int i = 0; i < list.getLength(); i++) {
-				Node node = list.item(i);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) node;
-					
-					System.out.print("Asset_Class:" + getTagValue("Asset_Class", element));
-					xml.setAsset_Class(getTagValue("Asset_Class", element));
-
-					System.out.print(" | Asset_ID:" + getTagValue("Asset_ID", element));
-					xml.setAsset_Id(getTagValue("Asset_ID", element));
-
-					System.out.print(" | Asset_Name:" + getTagValue("Asset_Name", element));
-					xml.setAsset_Name(getTagValue("Asset_Name", element));
-
-					System.out.print(" | Creation_Date:" + getTagValue("Creation_Date", element));
-					xml.setCreation_Date(getTagValue("Creation_Date", element));
-
-					System.out.print(" | Description:" + getTagValue("Description", element));
-					xml.setDescription(getTagValue("Description", element));
-
-					System.out.print(" | Product:" + getTagValue("Product", element));
-					xml.setProduct(getTagValue("Product", element));
-
-					System.out.print(" | Provider:" + getTagValue("Provider", element));
-					xml.setProvider(getTagValue("Provider", element));
-
-					System.out.print(" | Provider_ID:" + getTagValue("Provider_ID", element));
-					xml.setProvider_Id(getTagValue("Provider_ID", element));
-
-					// System.out.println(" | Verb:"+getTagValue("Verb",
-					// element));
-					xml.setVerb("");
-
-					System.out.print(" | Version_Major:" + getTagValue("Version_Major", element));
-					xml.setVersion_Major(Integer.parseInt(getTagValue("Version_Major", element)));
-
-					System.out.println(" | Version_Minor:" + getTagValue("Version_Minor", element));
-					xml.setVersion_Minor(Integer.parseInt(getTagValue("Version_Minor", element)));
-
-					try {
-						dao.add(xml);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			break;
+			this.nodeContext.amsNode(list, ams);
+		break;
 
 		case "App_Data":
 			for (int i = 0; i < list.getLength(); i++) {

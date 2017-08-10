@@ -11,7 +11,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import dao.XmlDao;
+import dao.AmsDao;
 import factory.DaoFactory;
 import xmlparse.XmlParse;
 
@@ -21,7 +21,7 @@ public class XmlParsingTest {
 	public void add() throws SQLException, ClassNotFoundException, 
 	ParserConfigurationException, SAXException, IOException {
 		XmlParse parse = new XmlParse();
-		XmlDao dao = new DaoFactory().xmlDao();
+		AmsDao dao = new DaoFactory().amsDao();
 		
 		dao.deleteAll();
 		assertThat(dao.getCount(), is(0));
@@ -29,10 +29,4 @@ public class XmlParsingTest {
 		parse.addFile();
 		assertThat(dao.getCount(), is(44));
 	}
-	
-	
-//	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException  {
-//		XmlParse parse = new XmlParse();
-//		parse.addFile();
-//	}
 }
