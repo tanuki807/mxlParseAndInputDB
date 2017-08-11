@@ -1,11 +1,11 @@
 package domain;
 
-import java.util.Date;
+import readnode.Xml;
 
-public class Ams implements Xml {
-	String asset_Class;
+public class Package_Table implements Xml {
 	String asset_Id;
 	String asset_Name;
+	String asset_Class;
 	String creation_Date;
 	String description;
 	String product;
@@ -14,6 +14,8 @@ public class Ams implements Xml {
 	String verb;
 	int version_Major;
 	int version_Minor;
+	String provider_Content_Tier;
+	String metadata_Spec_Version;
 	
 	public String getAsset_Class() {
 		return asset_Class;
@@ -80,6 +82,18 @@ public class Ams implements Xml {
 	}
 	public void setVersion_Minor(int version_Minor) {
 		this.version_Minor = version_Minor;
+	}
+	public String getProvider_Content_Tier() {
+		return provider_Content_Tier;
+	}
+	public void setProvider_Content_Tier(String provider_Content_Tier) {
+		this.provider_Content_Tier = provider_Content_Tier;
+	}
+	public String getMetadata_Spec_Version() {
+		return metadata_Spec_Version;
+	}
+	public void setMetadata_Spec_Version(String metadata_Spec_Version) {
+		this.metadata_Spec_Version = metadata_Spec_Version;
 	}
 	
 }

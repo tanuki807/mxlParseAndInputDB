@@ -16,9 +16,18 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import dao.AmsDao;
-import dbconnection.NodeContext;
-import domain.Ams;
+import dao.PackageDao;
+
+
+import domain.Package_Table;
 import factory.DaoFactory;
+import readnode.Ams;
+import readnode.AmsReadNode;
+import readnode.AppReadNode;
+import readnode.App_Data;
+import readnode.Content;
+import readnode.ContentReadNode;
+import readnode.ReadNode;
 
 public class XmlParse {
 	final static String filePath = "c:\\java_workspace\\xmlParse\\src\\xml";
@@ -27,15 +36,24 @@ public class XmlParse {
 	static Document doc;
 	static File file;
 	static File[] files;
+	private Package_Table table;
+	Ams ams;
+	App_Data app;
+	Content con;
+	int count;
 	
-	private NodeContext nodeContext;
+	
+	//private TableContext tableContext;
 	
 	public XmlParse() {
-		this.nodeContext = new NodeContext();
+		//this.tableContext = new TableContext();
 	}
 	
 	public void addFile() throws IOException, SAXException, ParserConfigurationException, 
 	SQLException, ClassNotFoundException {
+		this.table = new Package_Table();
+		
+		
 		domFactoty = DocumentBuilderFactory.newInstance();
 		domBuilder = domFactoty.newDocumentBuilder();
 		
@@ -61,53 +79,50 @@ public class XmlParse {
 			
 			System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
 			
-			inputWithPrintNode("App_Data");
-			inputWithPrintNode("AMS");
-			inputWithPrintNode("Content");
+			AmsReadNode readAms = new AmsReadNode();
+			AppReadNode readApp = new AppReadNode();
+			ContentReadNode readContent = new ContentReadNode();
+			
+			inputWithPrintNode("App_Data" ,readApp);
+			inputWithPrintNode("AMS", readAms);
+			inputWithPrintNode("Content", readContent);
+			
 		}
+//		PackageDao packageDao = new DaoFactory().packageDao();
+//		packageDao.add(table);
 	}
 	
 	
-	private  void inputWithPrintNode(String tagName) throws SQLException, ClassNotFoundException {
-		//String[] nodeArr = {"App_Data", "AMS", "Content"};
-//		for(int i=0; i < nodeArr.length; i++) {
-//			
-//		}
+	private  void inputWithPrintNode(String tagName, ReadNode node) throws SQLException, ClassNotFoundException {
+		System.out.println();
 		NodeList list = doc.getElementsByTagName(tagName);
-		System.out.println(tagName+"³ëµå ¼ö :"+list.getLength());
-		Ams ams = new Ams();
-		AmsDao dao = new DaoFactory().amsDao();
+		System.out.println(tagName+"ë…¸ë“œ ìˆ˜ :"+list.getLength());
+	
 		
 	  switch (tagName) {
 	  
-		case "AMS":
-			this.nodeContext.amsNode(list, ams);
-		break;
+		 case "AMS":
+			//table = this.tableContext.packageNode(list, table);
+			//this.nodeContext.amsNode(list, ams);
+			if(node instanceof AmsReadNode) {
+				AmsReadNode amsRead = (AmsReadNode)node;
+				ams = amsRead.readNode(list);
+			}
+			break;
 
 		case "App_Data":
-			for (int i = 0; i < list.getLength(); i++) {
-				Node node = list.item(i);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) node;
-					System.out.print("Name:" + getTagValue("Name", element));
-					System.out.println(" | Value:" + getTagValue("Value", element));
-				}
+			if(node instanceof AppReadNode) {
+				AppReadNode appRead = (AppReadNode) node;
+				app = appRead.readNode(list);
 			}
 			break;
 
 		case "Content":
-			for (int i = 0; i < list.getLength(); i++) {
-				Node node = list.item(i);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) node;
-					System.out.println("Value:" + getTagValue("Value", element));
-				}
+			if(node instanceof ContentReadNode) {
+				ContentReadNode contentRead = (ContentReadNode)node;
+				con = contentRead.readNode(list);
 			}
-		} 
+		}
 	}
 	
-	private  String getTagValue(String tag, Element element) {
-		String list = element.getAttributeNode(tag).getNodeValue();
-		return list;
-	}
 }

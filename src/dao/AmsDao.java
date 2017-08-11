@@ -10,8 +10,9 @@ import java.sql.SQLException;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
-import domain.Ams;
-import domain.Xml;
+import readnode.Ams;
+import readnode.Xml;
+
 
 public class AmsDao {
 	private ConnectionMaker connectionMaker;

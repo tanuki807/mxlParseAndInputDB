@@ -33,6 +33,7 @@ public class JdbcContext {
 			ps = stmt.makePreparedStatement(c);
 			ps.executeUpdate();
 		} catch(SQLException e) {
+			e.printStackTrace();
 			throw e;
 		} finally {
 			if(ps!=null) {
