@@ -1,4 +1,6 @@
-package readnode;
+package domain;
+
+import readnode.Xml;
 
 public class Ams implements Xml {
 	String asset_Class;
@@ -8,10 +10,11 @@ public class Ams implements Xml {
 	String description;
 	String product;
 	String provider;
-	String provider_Id;
+	String provider_ID;
 	String verb;
 	int version_Major;
 	int version_Minor;
+	String title;
 	
 	public String getAsset_Class() {
 		return asset_Class;
@@ -55,11 +58,11 @@ public class Ams implements Xml {
 	public void setProvider(String provider) {
 		this.provider = provider;
 	}
-	public String getProvider_Id() {
-		return provider_Id;
+	public String getProvider_ID() {
+		return provider_ID;
 	}
-	public void setProvider_Id(String provider_Id) {
-		this.provider_Id = provider_Id;
+	public void setProvider_ID(String provider_ID) {
+		this.provider_ID = provider_ID;
 	}
 	public String getVerb() {
 		return verb;
@@ -79,5 +82,10 @@ public class Ams implements Xml {
 	public void setVersion_Minor(int version_Minor) {
 		this.version_Minor = version_Minor;
 	}
-	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title=title;
+	}
 }

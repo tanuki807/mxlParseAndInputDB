@@ -2,10 +2,8 @@ package dao;
 
 import java.sql.SQLException;
 
-import domain.Ams;
-
-public interface AmsDao {
+public interface Publication_TypeDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(Ams ams) throws ClassNotFoundException, SQLException;
+	void add(String publication, String type, String title) throws ClassNotFoundException, SQLException;
 	void deleteAll() throws ClassNotFoundException, SQLException;
 }

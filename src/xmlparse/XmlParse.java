@@ -4,24 +4,24 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import dao.AmsDao;
-import dao.PackageDao;
-
-
-import domain.Package_Table;
+import dao.ActorsDao;
+import dao.AppDao;
+import dao.ContentDao;
+import dao.Publication_TypeDao;
+import domain.Ams;
+import domain.App;
 import factory.DaoFactory;
-import readnode.Ams;
 import readnode.AmsReadNode;
 import readnode.AppReadNode;
 import readnode.App_Data;
@@ -30,29 +30,22 @@ import readnode.ContentReadNode;
 import readnode.ReadNode;
 
 public class XmlParse {
-	final static String filePath = "c:\\java_workspace\\xmlParse\\src\\xml";
+	
+	final static String filePath = "C:\\Users\\pandora\\Desktop\\xml";
 	static DocumentBuilderFactory domFactoty;
 	static DocumentBuilder domBuilder;
 	static Document doc;
 	static File file;
 	static File[] files;
-	private Package_Table table;
-	Ams ams;
-	App_Data app;
-	Content con;
+	private Ams ams;
+	private App_Data app_Data;
+	private App app;
+	private Content con;
 	int count;
 	
 	
-	//private TableContext tableContext;
-	
-	public XmlParse() {
-		//this.tableContext = new TableContext();
-	}
-	
 	public void addFile() throws IOException, SAXException, ParserConfigurationException, 
 	SQLException, ClassNotFoundException {
-		this.table = new Package_Table();
-		
 		
 		domFactoty = DocumentBuilderFactory.newInstance();
 		domBuilder = domFactoty.newDocumentBuilder();
@@ -87,11 +80,46 @@ public class XmlParse {
 			inputWithPrintNode("AMS", readAms);
 			inputWithPrintNode("Content", readContent);
 			
+			
+			AppDao appDao = new DaoFactory().appDao();
+			appDao.add(app_Data);
+
+			ActorsDao actorDao = new DaoFactory().actorDao();
+			Publication_TypeDao pubDao = new DaoFactory().pubDao();
+			
+			String title = app_Data.getTitle();
+			List actorsList = app_Data.getActors();
+			Iterator<String> it = actorsList.iterator();
+			while(it.hasNext()) {
+				actorDao.add(it.next(), title);
+			}
+			
+			List pubList = app_Data.getPublication_Right();
+			List typeList = app_Data.getType();
+			Iterator<String> typeIterator = typeList.iterator();
+			it = pubList.iterator();
+			
+			while(it.hasNext()) {
+				pubDao.add(it.next(), typeIterator.next(), title);
+			}
+			
+			ContentDao contentDao = new DaoFactory().contentDao();
+			List advisoriesList = app_Data.getAdvisories();
+			List content_FileSizeList = app_Data.getContent_FileSize();
+			List content_CheckSumList = app_Data.getContent_CheckSum();
+			List valueList = con.getVlaue();
+			Iterator<String> advisorIterator = advisoriesList.iterator();
+			Iterator<String> fileSizeIterator = content_FileSizeList.iterator();
+			Iterator<String> checkSumListIterator = content_CheckSumList.iterator();
+			Iterator<String> valueIterator = valueList.iterator();
+			while(advisorIterator.hasNext()) {
+				contentDao.add(
+						title, advisorIterator.next(), fileSizeIterator.next(), 
+						checkSumListIterator.next(), valueIterator.next());
+			}
 		}
-//		PackageDao packageDao = new DaoFactory().packageDao();
-//		packageDao.add(table);
 	}
-	
+		
 	
 	private  void inputWithPrintNode(String tagName, ReadNode node) throws SQLException, ClassNotFoundException {
 		System.out.println();
@@ -104,8 +132,10 @@ public class XmlParse {
 		 case "AMS":
 			//table = this.tableContext.packageNode(list, table);
 			//this.nodeContext.amsNode(list, ams);
+			 
 			if(node instanceof AmsReadNode) {
 				AmsReadNode amsRead = (AmsReadNode)node;
+				amsRead.setApp(app_Data);
 				ams = amsRead.readNode(list);
 			}
 			break;
@@ -113,7 +143,7 @@ public class XmlParse {
 		case "App_Data":
 			if(node instanceof AppReadNode) {
 				AppReadNode appRead = (AppReadNode) node;
-				app = appRead.readNode(list);
+				app_Data = appRead.readNode(list);
 			}
 			break;
 
@@ -124,5 +154,4 @@ public class XmlParse {
 			}
 		}
 	}
-	
 }

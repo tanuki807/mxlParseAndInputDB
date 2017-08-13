@@ -2,10 +2,10 @@ package dao;
 
 import java.sql.SQLException;
 
-import domain.Ams;
+import readnode.App_Data;
 
-public interface AmsDao {
+public interface ActorsDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(Ams ams) throws ClassNotFoundException, SQLException;
+	void add(String actor, String title) throws ClassNotFoundException, SQLException;
 	void deleteAll() throws ClassNotFoundException, SQLException;
 }

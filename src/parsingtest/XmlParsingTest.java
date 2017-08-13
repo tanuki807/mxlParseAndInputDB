@@ -11,8 +11,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import dao.ActorsDao;
 import dao.AmsDao;
-import dao.PackageDao;
+import dao.AppDao;
+import dao.ContentDao;
+import dao.Publication_TypeDao;
 import factory.DaoFactory;
 import xmlparse.XmlParse;
 
@@ -22,14 +25,28 @@ public class XmlParsingTest {
 	public void add() throws SQLException, ClassNotFoundException, 
 	ParserConfigurationException, SAXException, IOException {
 		XmlParse parse = new XmlParse();
-		parse.addFile();
+		
 		//PackageDao packageDao = new DaoFactory().packageDao();
+		AppDao appDao = new DaoFactory().appDao();
+		AmsDao amsDao = new DaoFactory().amsDao();
+		ActorsDao actorDao = new DaoFactory().actorDao();
+		Publication_TypeDao pubDao = new DaoFactory().pubDao();
+		ContentDao contentDao = new DaoFactory().contentDao();
 		
-		//packageDao.deleteAll();
-		//assertThat(packageDao.getCount(), is(0));
+		appDao.deleteAll();
+		assertThat(appDao.getCount(), is(0));
+		amsDao.deleteAll();
+		assertThat(amsDao.getCount(), is(0));
+		actorDao.deleteAll();
+		assertThat(actorDao.getCount(), is(0));
+		pubDao.deleteAll();
+		assertThat(pubDao.getCount(), is(0));
+		contentDao.deleteAll();
+		assertThat(contentDao.getCount(), is(0));
 		
-		//parse.addFile();
-		//assertThat(packageDao.getCount(), is(1));
+		parse.addFile();
+		assertThat(appDao.getCount(), is(21643));
+//		assertThat(amsDao.getCount(), is(12));
 		
 	}
 }
