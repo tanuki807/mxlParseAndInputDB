@@ -19,114 +19,81 @@ import dao.ActorsDao;
 import dao.AppDao;
 import dao.ContentDao;
 import dao.Publication_TypeDao;
-import domain.Ams;
 import domain.App;
+import domain.Content;
 import factory.DaoFactory;
+import readnode.AmsTag;
 import readnode.AmsReadNode;
 import readnode.AppReadNode;
-import readnode.App_Data;
-import readnode.Content;
+import readnode.App_DataTag;
+import readnode.ContentTag;
 import readnode.ContentReadNode;
 import readnode.ReadNode;
 
 public class XmlParse {
 	
 	final static String filePath = "C:\\Users\\pandora\\Desktop\\xml";
+	//final static String filePath = "C:\\java_workspace\\xmlParse\\src\\xml";
 	static DocumentBuilderFactory domFactoty;
 	static DocumentBuilder domBuilder;
 	static Document doc;
 	static File file;
 	static File[] files;
-	private Ams ams;
-	private App_Data app_Data;
+	private AmsTag amsTag;
+	//private App_Data app_Data;
 	private App app;
-	private Content con;
+	private ContentTag conTag;
 	int count;
 	
-	
-	public void addFile() throws IOException, SAXException, ParserConfigurationException, 
-	SQLException, ClassNotFoundException {
+	public void addFile() throws ParserConfigurationException {
 		
 		domFactoty = DocumentBuilderFactory.newInstance();
 		domBuilder = domFactoty.newDocumentBuilder();
 		
-		file = new File(filePath);
-		if(!(file.exists() || file.isDirectory())){
-			System.out.println("file is not Directory");
+		try {
+			file = new File(filePath);
+			files = file.listFiles(new FilenameFilter() {
+				public boolean accept(File dir, String name) {
+					return name.lastIndexOf("xml") != -1;
+				}
+			});
+			
+			int count = 0;
+			for(int i=0; i < files.length; i++) {
+				String fileName = files[i].getAbsolutePath();
+				System.out.println();
+				System.out.println("no."+ ++count +" "+fileName);
+				doc = domBuilder.parse(fileName);
+				doc.normalize();
+				
+				System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
+				
+				AmsReadNode readAms = new AmsReadNode();
+				AppReadNode readApp = new AppReadNode();
+				ContentReadNode readContent = new ContentReadNode();
+				readApp.setContentReadNode(readContent);
+				
+				inputWithPrintNode("App_Data" ,readApp);
+				inputWithPrintNode("AMS", readAms);
+				inputWithPrintNode("Content", readContent);
+				
+			}
+		} catch(IOException e) {
+			System.out.println("IOException!!"+e.getMessage());
+			e.printStackTrace();
 			System.exit(0);
-		}
-		
-		files = file.listFiles(new FilenameFilter() {
-			public boolean accept(File dir, String name) {
-				return name.lastIndexOf("xml") != -1;
-			}
-		});
-		
-		int count = 0;
-		for(int i=0; i < files.length; i++) {
-			String fileName = files[i].getAbsolutePath();
-			System.out.println();
-			System.out.println("no."+ ++count +" "+fileName);
-			doc = domBuilder.parse(fileName);
-			doc.normalize();
-			
-			System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
-			
-			AmsReadNode readAms = new AmsReadNode();
-			AppReadNode readApp = new AppReadNode();
-			ContentReadNode readContent = new ContentReadNode();
-			
-			inputWithPrintNode("App_Data" ,readApp);
-			inputWithPrintNode("AMS", readAms);
-			inputWithPrintNode("Content", readContent);
-			
-			
-			AppDao appDao = new DaoFactory().appDao();
-			appDao.add(app_Data);
-
-			ActorsDao actorDao = new DaoFactory().actorDao();
-			Publication_TypeDao pubDao = new DaoFactory().pubDao();
-			
-			String title = app_Data.getTitle();
-			List actorsList = app_Data.getActors();
-			Iterator<String> it = actorsList.iterator();
-			while(it.hasNext()) {
-				actorDao.add(it.next(), title);
-			}
-			
-			List pubList = app_Data.getPublication_Right();
-			List typeList = app_Data.getType();
-			Iterator<String> typeIterator = typeList.iterator();
-			it = pubList.iterator();
-			
-			while(it.hasNext()) {
-				pubDao.add(it.next(), typeIterator.next(), title);
-			}
-			
-			ContentDao contentDao = new DaoFactory().contentDao();
-			List advisoriesList = app_Data.getAdvisories();
-			List content_FileSizeList = app_Data.getContent_FileSize();
-			List content_CheckSumList = app_Data.getContent_CheckSum();
-			List valueList = con.getVlaue();
-			Iterator<String> advisorIterator = advisoriesList.iterator();
-			Iterator<String> fileSizeIterator = content_FileSizeList.iterator();
-			Iterator<String> checkSumListIterator = content_CheckSumList.iterator();
-			Iterator<String> valueIterator = valueList.iterator();
-			while(advisorIterator.hasNext()) {
-				contentDao.add(
-						title, advisorIterator.next(), fileSizeIterator.next(), 
-						checkSumListIterator.next(), valueIterator.next());
-			}
-		}
+		} catch(SAXException sae) {
+			System.out.println("SAXException!!"+sae.getMessage());
+			sae.printStackTrace();
+			System.exit(0);
+		} 
 	}
 		
-	
-	private  void inputWithPrintNode(String tagName, ReadNode node) throws SQLException, ClassNotFoundException {
+	private  void inputWithPrintNode(String tagName, ReadNode node) {
 		System.out.println();
 		NodeList list = doc.getElementsByTagName(tagName);
 		System.out.println(tagName+"노드 수 :"+list.getLength());
 	
-		
 	  switch (tagName) {
 	  
 		 case "AMS":
@@ -135,22 +102,24 @@ public class XmlParse {
 			 
 			if(node instanceof AmsReadNode) {
 				AmsReadNode amsRead = (AmsReadNode)node;
-				amsRead.setApp(app_Data);
-				ams = amsRead.readNode(list);
+				//amsRead.setApp(app_Data);
+				amsRead.setApp(app);
+				amsTag = amsRead.readNode(list);
 			}
 			break;
 
 		case "App_Data":
 			if(node instanceof AppReadNode) {
 				AppReadNode appRead = (AppReadNode) node;
-				app_Data = appRead.readNode(list);
+				//app_Data = appRead.readNode(list);
+				app = appRead.readNode(list);
 			}
 			break;
 
 		case "Content":
 			if(node instanceof ContentReadNode) {
 				ContentReadNode contentRead = (ContentReadNode)node;
-				con = contentRead.readNode(list);
+				conTag = contentRead.readNode(list);
 			}
 		}
 	}

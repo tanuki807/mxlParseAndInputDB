@@ -59,8 +59,7 @@ public class ContentDaoJdbc implements ContentDao {
 	}
 
 	@Override
-	public void add(String title, String advisories, String content_FileSize, String content_CheckSum, String value) 
-			throws ClassNotFoundException, SQLException {
+	public void add(String title, String advisories, String content_FileSize, String content_CheckSum, String value) {
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
@@ -81,7 +80,7 @@ public class ContentDaoJdbc implements ContentDao {
 	}
 
 	@Override
-	public void deleteAll() throws ClassNotFoundException, SQLException {
+	public void deleteAll() {
 		this.jdbcContext.executeSql("delete from content");
 	}
 }

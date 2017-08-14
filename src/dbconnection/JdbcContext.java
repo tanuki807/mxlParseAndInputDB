@@ -11,7 +11,7 @@ public class JdbcContext {
 		this.connectionMaker = connectionMaker;
 	}
 	
-	public void executeSql(final String query) throws SQLException, ClassNotFoundException {
+	public void executeSql(final String query) {
 		workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) 
@@ -24,7 +24,7 @@ public class JdbcContext {
 	
 		
 	
-	public void workWithStatementStrategy(StatementStrategy stmt) throws SQLException, ClassNotFoundException {
+	public void workWithStatementStrategy(StatementStrategy stmt) {
 		Connection c = null;
 		PreparedStatement ps = null;
 		
@@ -34,8 +34,14 @@ public class JdbcContext {
 			ps.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw e;
-		} finally {
+			System.out.println("SQLException!!"+e.getMessage());
+			System.exit(0);
+		} catch(ClassNotFoundException ce) {
+			ce.printStackTrace();
+			System.out.println("ClassNotFoundException!!"+ce.getMessage());
+			System.exit(0);
+		}
+		finally {
 			if(ps!=null) {
 				try {
 					ps.close();

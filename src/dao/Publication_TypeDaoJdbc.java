@@ -59,18 +59,19 @@ public class Publication_TypeDaoJdbc implements Publication_TypeDao {
 	}
 
 	@Override
-	public void add(String publication, String type, String title) throws ClassNotFoundException, SQLException {
+	public void add(String publication, String type, String title) {
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 						PreparedStatement ps = c.prepareStatement(
 						"insert into pub_type("
-										+ "publication_Right, type, title) "
+										+ "title, publication_Right, type) "
 										+ "values(?,?,?)") ;
 						
-						ps.setString(1, publication);
-						ps.setString(2, type);
-						ps.setString(3, title);
+						ps.setString(1, title);
+						ps.setString(2, publication);
+						ps.setString(3, type);
+						
 						return ps;
 				 }
 			  }
@@ -78,7 +79,7 @@ public class Publication_TypeDaoJdbc implements Publication_TypeDao {
 	}
 
 	@Override
-	public void deleteAll() throws ClassNotFoundException, SQLException {
+	public void deleteAll() {
 		this.jdbcContext.executeSql("delete from pub_type");
 	}
 }

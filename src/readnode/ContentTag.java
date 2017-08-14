@@ -2,7 +2,7 @@ package readnode;
 
 import java.util.List;
 
-public class Content implements Xml {
+public class ContentTag implements Xml {
 	List<String> vlaue;
 
 	public List<String> getVlaue() {

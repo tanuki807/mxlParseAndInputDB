@@ -2,10 +2,10 @@ package dao;
 
 import java.sql.SQLException;
 
-import domain.Ams;
+import readnode.AmsTag;
 
 public interface AmsDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(Ams ams) throws ClassNotFoundException, SQLException;
-	void deleteAll() throws ClassNotFoundException, SQLException;
+	void add(String title, String asset_Id, String asset_Class, String description);
+	void deleteAll();
 }

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
-import domain.Ams;
+import readnode.AmsTag;
 
 
 public class AmsDaoJdbc implements AmsDao{
@@ -61,33 +61,24 @@ public class AmsDaoJdbc implements AmsDao{
 	}
 	
 	@Override
-	public void deleteAll() throws ClassNotFoundException, SQLException {
+	public void deleteAll() {
 		this.jdbcContext.executeSql("delete from ams");
 	}
 	
 	@Override
-	public void add(Ams ams) throws ClassNotFoundException, SQLException {
+	public void add(String title, String asset_Id, String asset_Class, String description) {
 		this.jdbcContext.workWithStatementStrategy(
 			new StatementStrategy() {
 				public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 					PreparedStatement ps = c.prepareStatement(
 					"insert into ams("
-									+ "title, asset_Id, asset_Class, description, asset_Name, creation_Date, product, "
-									+ "provider, provider_ID, version_Major, version_Minor, verb) "
-									+ "values(?,?,?,?,?,?,?,?,?,?,?,?)") ;
+									+ "title, asset_Id, asset_Class, description) "
+									+ "values(?,?,?,?)") ;
 					
-					ps.setString(1, ams.getTitle());
-					ps.setString(2, ams.getAsset_Id());
-					ps.setString(3, ams.getAsset_Class());
-					ps.setString(4, ams.getDescription());
-					ps.setString(5, ams.getAsset_Name());
-					ps.setString(6, ams.getCreation_Date());
-					ps.setString(7, ams.getProduct());
-					ps.setString(8, ams.getProvider());
-					ps.setString(9, ams.getProvider_ID());
-					ps.setInt(10, ams.getVersion_Major());
-					ps.setInt(11, ams.getVersion_Minor());
-					ps.setString(12, ams.getVerb());
+					ps.setString(1, title);
+					ps.setString(2, asset_Id);
+					ps.setString(3, asset_Class);
+					ps.setString(4, description);
 					return ps;
 			 }
 		  }
@@ -95,7 +86,7 @@ public class AmsDaoJdbc implements AmsDao{
 	}
 	
 	
-	public Ams get(String asset_Class) throws ClassNotFoundException, SQLException {
+	public AmsTag get(String asset_Class) throws ClassNotFoundException, SQLException {
 		Connection c = connectionMaker.makeConnection();
 		PreparedStatement ps = c.prepareStatement("select *from asm where Asset_Class = ?");
 		
@@ -103,18 +94,18 @@ public class AmsDaoJdbc implements AmsDao{
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 		
-		Ams ams = new Ams();
-		ams.setAsset_Class(rs.getString("asset_Class"));
-		ams.setAsset_Id(rs.getString("asset_Id"));
-		ams.setAsset_Name(rs.getString("asset_Name"));
-		ams.setCreation_Date(rs.getString("creation_Date"));
-		ams.setDescription(rs.getString("description"));
-		ams.setProduct(rs.getString("product"));
-		ams.setProvider(rs.getString("provider"));
-		ams.setProvider_ID(rs.getString("provider_Id"));
-		ams.setVerb(rs.getString("verb"));
-		ams.setVersion_Major(rs.getInt("version_Major"));
-		ams.setVersion_Minor(rs.getInt("version_Minor"));
-		return ams;
+		AmsTag amsTag = new AmsTag();
+		amsTag.setAsset_Class(rs.getString("asset_Class"));
+		amsTag.setAsset_Id(rs.getString("asset_Id"));
+		amsTag.setAsset_Name(rs.getString("asset_Name"));
+		amsTag.setCreation_Date(rs.getString("creation_Date"));
+		amsTag.setDescription(rs.getString("description"));
+		amsTag.setProduct(rs.getString("product"));
+		amsTag.setProvider(rs.getString("provider"));
+		amsTag.setProvider_ID(rs.getString("provider_Id"));
+		amsTag.setVerb(rs.getString("verb"));
+		amsTag.setVersion_Major(rs.getInt("version_Major"));
+		amsTag.setVersion_Minor(rs.getInt("version_Minor"));
+		return amsTag;
 	}
 }

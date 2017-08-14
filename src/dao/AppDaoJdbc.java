@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
-import readnode.App_Data;
+import domain.App;
+import readnode.App_DataTag;
 
 public class AppDaoJdbc implements AppDao {
 	ConnectionMaker connectionMaker;
@@ -59,9 +60,11 @@ public class AppDaoJdbc implements AppDao {
 			}
 		}
 	}
-
+	
+	//public void add(App_Data app) throws ClassNotFoundException, SQLException {
+	
 	@Override
-	public void add(App_Data app) throws ClassNotFoundException, SQLException {
+	public void add(App app) {
 		this.context.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
@@ -96,7 +99,7 @@ public class AppDaoJdbc implements AppDao {
 						ps.setString(11, app.getProvider_QA_Contact());
 						ps.setString(12, app.getLicensing_Window_Start());
 						ps.setString(13, app.getLicensing_Window_End());
-						ps.setInt(14, Integer.parseInt(app.getPreview_Period()));
+						ps.setInt(14, app.getPreview_Period());
 						ps.setString(15, app.getTitle_Sort_Name());
 						ps.setString(16, app.getEpisode_Name());
 						ps.setString(17, app.getEpisode_id());
@@ -116,8 +119,8 @@ public class AppDaoJdbc implements AppDao {
 						ps.setString(31, app.getCountry_of_Origin());
 						ps.setString(32, app.getGenre());
 						ps.setString(33, app.getMaximum_Viewing_Length());
-						ps.setInt(34, Integer.parseInt(app.getSuggested_Price()));
-						ps.setInt(35, Integer.parseInt(app.getPropagation_Priority()));
+						ps.setInt(34, app.getSuggested_Price());
+						ps.setInt(35, app.getPropagation_Priority());
 						ps.setString(36, app.getLongTail_YN());
 						ps.setString(37, app.getStudio_Royalty_Percent());
 						ps.setString(38, app.getStudio_Royalty_Minimum());
@@ -142,8 +145,8 @@ public class AppDaoJdbc implements AppDao {
 						ps.setString(57, app.getAnalog_Protection_System());
 						ps.setString(58, app.getEncryption_Mode_Indicator());
 						ps.setString(59, app.getConstrained_Image_Trigger());
-						ps.setString(60, app.getCGMS_A());
-						ps.setString(61, app.getHDContent());
+						ps.setString(60, app.getcGMS_A());
+						ps.setString(61, app.gethDContent());
 						ps.setString(62, app.getImage_Aspect_Ratio());
 						return ps;	
 				 }
@@ -152,7 +155,7 @@ public class AppDaoJdbc implements AppDao {
 	}
 
 	@Override
-	public void deleteAll() throws ClassNotFoundException, SQLException {
+	public void deleteAll() {
 		this.context.executeSql("delete from app_data");
 
 	}

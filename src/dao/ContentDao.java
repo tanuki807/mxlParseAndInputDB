@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 public interface ContentDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(String title, String advisories, String content_FileSize, String content_CheckSum, String value) 
-	throws ClassNotFoundException, SQLException;
-	void deleteAll() throws ClassNotFoundException, SQLException;
+	void add(String title, String advisories, String content_FileSize, String content_CheckSum, String value);
+	void deleteAll();
 }

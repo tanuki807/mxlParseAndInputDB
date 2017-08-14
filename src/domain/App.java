@@ -1,14 +1,15 @@
 package domain;
 
-import java.util.List;
 
-public class App {
+import readnode.Xml;
+
+public class App implements Xml{
+	String title;
 	String billing_ID;
 	String provider_Content_Tier;
 	String metadata_Spec_Version;
 	//List<String> Publication_Right;
 	//List<String> Type;
-	String title;
 	String title_Brief;
 	String category;
 	String rating;

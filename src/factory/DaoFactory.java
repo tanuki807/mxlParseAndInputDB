@@ -8,6 +8,8 @@ import dao.AppDao;
 import dao.AppDaoJdbc;
 import dao.ContentDao;
 import dao.ContentDaoJdbc;
+import dao.Duplicated_AmsDao;
+import dao.Duplicated_AmsDaoJdbc;
 import dao.Publication_TypeDao;
 import dao.Publication_TypeDaoJdbc;
 import dbconnection.ConnectionMaker;
@@ -20,7 +22,13 @@ public class DaoFactory {
 	private ActorsDaoJdbc actorDao = new ActorsDaoJdbc();
 	private Publication_TypeDaoJdbc pubDao = new Publication_TypeDaoJdbc();
 	private ContentDaoJdbc contentDao = new ContentDaoJdbc();
+	private Duplicated_AmsDaoJdbc dupAmsDao = new Duplicated_AmsDaoJdbc();
 	
+	
+	public Duplicated_AmsDao dupAmsDao() {
+		dupAmsDao.setConnectionMaker(connectionMaker());
+		return dupAmsDao;
+	}
 	public ContentDao contentDao() {
 		contentDao.setConnectionMaker(connectionMaker());
 		return contentDao;

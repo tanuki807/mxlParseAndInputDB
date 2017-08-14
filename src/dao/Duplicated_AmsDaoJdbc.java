@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
-import readnode.App_DataTag;
+import domain.Duplicated_Ams;
 
-public class ActorsDaoJdbc implements ActorsDao {
+public class Duplicated_AmsDaoJdbc implements Duplicated_AmsDao {
 	private ConnectionMaker connectionMaker;
 	private JdbcContext jdbcContext;
 	
@@ -28,7 +28,7 @@ public class ActorsDaoJdbc implements ActorsDao {
 		
 		try {
 			c = connectionMaker.makeConnection();
-			ps = c.prepareStatement("select count(*) from actors");
+			ps = c.prepareStatement("select count(*) from duplicated_ams");
 			rs = ps.executeQuery();
 			rs.next();
 			return rs.getInt(1);
@@ -60,17 +60,25 @@ public class ActorsDaoJdbc implements ActorsDao {
 	}
 
 	@Override
-	public void add(String title, String actor) {
+	public void add(Duplicated_Ams dupAms) {
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 						PreparedStatement ps = c.prepareStatement(
-						"insert into actors("
-										+ "title, actors) "
-										+ "values(?,?)") ;
+						"insert into duplicated_ams("
+										+ "title, asset_Name, creation_Date, product, provider,"
+										+ "provider_Id, version_Major, version_Minor, verb) "
+										+ "values(?,?,?,?,?,?,?,?,?)") ;
 						
-						ps.setString(1, title);
-						ps.setString(2, actor);
+						ps.setString(1, dupAms.getTitle());
+						ps.setString(2, dupAms.getAsset_Name());
+						ps.setString(3, dupAms.getCreation_Date());
+						ps.setString(4, dupAms.getProduct());
+						ps.setString(5, dupAms.getProvider());
+						ps.setString(6, dupAms.getProvider_Id());
+						ps.setInt(7, dupAms.getVersion_Major());
+						ps.setInt(8, dupAms.getVersion_Minor());
+						ps.setString(9, dupAms.getVerb());
 						return ps;
 				 }
 			  }
@@ -79,6 +87,6 @@ public class ActorsDaoJdbc implements ActorsDao {
 
 	@Override
 	public void deleteAll() {
-		this.jdbcContext.executeSql("delete from actors");
+		this.jdbcContext.executeSql("delete from duplicated_ams");
 	}
 }

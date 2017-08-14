@@ -2,10 +2,10 @@ package dao;
 
 import java.sql.SQLException;
 
-import readnode.App_DataTag;
+import domain.Duplicated_Ams;
 
-public interface ActorsDao {
+public interface Duplicated_AmsDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(String title, String actor);
+	void add(Duplicated_Ams dupAms); 
 	void deleteAll();
 }
