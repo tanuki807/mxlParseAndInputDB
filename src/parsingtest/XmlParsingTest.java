@@ -15,8 +15,6 @@ import dao.ActorsDao;
 import dao.AmsDao;
 import dao.AppDao;
 import dao.ContentDao;
-import dao.Duplicated_AmsDao;
-import dao.Publication_TypeDao;
 import factory.DaoFactory;
 import xmlparse.XmlParse;
 
@@ -29,9 +27,7 @@ public class XmlParsingTest {
 		//PackageDao packageDao = new DaoFactory().packageDao();
 		AppDao appDao = new DaoFactory().appDao();
 		AmsDao amsDao = new DaoFactory().amsDao();
-		Duplicated_AmsDao dupAmsDao = new DaoFactory().dupAmsDao();
 		ActorsDao actorDao = new DaoFactory().actorDao();
-		Publication_TypeDao pubDao = new DaoFactory().pubDao();
 		ContentDao contentDao = new DaoFactory().contentDao();
 		
 		appDao.deleteAll();
@@ -40,12 +36,8 @@ public class XmlParsingTest {
 		assertThat(amsDao.getCount(), is(0));
 		actorDao.deleteAll();
 		assertThat(actorDao.getCount(), is(0));
-		pubDao.deleteAll();
-		assertThat(pubDao.getCount(), is(0));
 		contentDao.deleteAll();
 		assertThat(contentDao.getCount(), is(0));
-		dupAmsDao.deleteAll();
-		assertThat(dupAmsDao.getCount(), is(0));
 		
 		parse.addFile();
 		//assertThat(appDao.getCount(), is(1));

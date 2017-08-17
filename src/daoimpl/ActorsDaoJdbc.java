@@ -1,10 +1,11 @@
-package dao;
+package daoimpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import dao.ActorsDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
@@ -60,16 +61,16 @@ public class ActorsDaoJdbc implements ActorsDao {
 	}
 
 	@Override
-	public void add(String title, String actor) {
+	public void add(int package_Id, String actor) {
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 						PreparedStatement ps = c.prepareStatement(
 						"insert into actors("
-										+ "title, actors) "
+										+ "package_Id, actors) "
 										+ "values(?,?)") ;
 						
-						ps.setString(1, title);
+						ps.setInt(1, package_Id);
 						ps.setString(2, actor);
 						return ps;
 				 }

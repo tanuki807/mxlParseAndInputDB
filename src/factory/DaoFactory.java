@@ -1,17 +1,19 @@
 package factory;
 
 import dao.ActorsDao;
-import dao.ActorsDaoJdbc;
 import dao.AmsDao;
-import dao.AmsDaoJdbc;
 import dao.AppDao;
-import dao.AppDaoJdbc;
 import dao.ContentDao;
-import dao.ContentDaoJdbc;
-import dao.Duplicated_AmsDao;
-import dao.Duplicated_AmsDaoJdbc;
-import dao.Publication_TypeDao;
-import dao.Publication_TypeDaoJdbc;
+import dao.JdbcDao;
+import daoimpl.ActorsDaoJdbc;
+import daoimpl.AmsDaoJdbc;
+import daoimpl.AppDaoJdbc;
+import daoimpl.ContentDaoJdbc;
+import daoimpl.MovieJdbc;
+import daoimpl.PackageJdbcDaoImpl;
+import daoimpl.PosterJdbc;
+import daoimpl.SubTableJdbc;
+import daoimpl.TitleJdbc;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcConnectionMaker;
 
@@ -20,23 +22,40 @@ public class DaoFactory {
 	private AppDaoJdbc	appDao = new AppDaoJdbc();
 	private AmsDaoJdbc amsDao = new AmsDaoJdbc();
 	private ActorsDaoJdbc actorDao = new ActorsDaoJdbc();
-	private Publication_TypeDaoJdbc pubDao = new Publication_TypeDaoJdbc();
 	private ContentDaoJdbc contentDao = new ContentDaoJdbc();
-	private Duplicated_AmsDaoJdbc dupAmsDao = new Duplicated_AmsDaoJdbc();
+	private PackageJdbcDaoImpl packageJdbcDao = new PackageJdbcDaoImpl();
+	private SubTableJdbc subTableJdbc = new SubTableJdbc();
+	private TitleJdbc titleJdbc = new TitleJdbc();
+	private MovieJdbc movieJdbc = new MovieJdbc();
+	private PosterJdbc posterJdbc = new PosterJdbc(); 
 	
-	
-	public Duplicated_AmsDao dupAmsDao() {
-		dupAmsDao.setConnectionMaker(connectionMaker());
-		return dupAmsDao;
+	public PosterJdbc posterJdbc() {
+		posterJdbc.setConnectionMaker(connectionMaker());
+		return posterJdbc;
 	}
+	
+	public MovieJdbc movieJdbc() {
+		movieJdbc.setConnectionMaker(connectionMaker());
+		return movieJdbc;
+	}
+	
+	public TitleJdbc titleJdbc() {
+		titleJdbc.setConnectionMaker(connectionMaker());
+		return titleJdbc;
+	}
+	
+	public SubTableJdbc subTableJdbc() {
+		subTableJdbc.setConnectionMaker(connectionMaker());
+		return subTableJdbc;
+	}
+	public PackageJdbcDaoImpl packageJdbcDao() {
+		packageJdbcDao.setConnectionMaker(connectionMaker());
+		return packageJdbcDao;
+	}
+	
 	public ContentDao contentDao() {
 		contentDao.setConnectionMaker(connectionMaker());
 		return contentDao;
-	}
-	
-	public Publication_TypeDao pubDao() {
-		pubDao.setConnectionMaker(connectionMaker());
-		return pubDao;
 	}
 	
 	public ActorsDao actorDao() {

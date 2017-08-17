@@ -18,7 +18,6 @@ import org.xml.sax.SAXException;
 import dao.ActorsDao;
 import dao.AppDao;
 import dao.ContentDao;
-import dao.Publication_TypeDao;
 import domain.App;
 import domain.Content;
 import factory.DaoFactory;

@@ -1,24 +1,26 @@
-package domain;
+package table;
 
-public class Title {
+public class Title_Table {
+	int package_Id;
+	String description;
 	String asset_Id;
 	String asset_Class;
-	String description;
 	String type;
 	String title;
 	String title_Brief;
 	String category;
-	int rating;
+	String rating;
 	String summary_Short;
 	String run_Time;
 	String display_Run_Time;
 	String provider_QA_Contact;
+	String billing_Id;
 	String licensing_Window_Start;
 	String licensing_Window_End;
-	String preview_Period;
+	int preview_Period;
 	String title_Sort_Name;
 	String episode_Name;
-	int episode_id;
+	String episode_Id;
 	String summary_Medium;
 	String summary_Long;
 	String actors_Display;
@@ -34,7 +36,7 @@ public class Title {
 	String year;
 	String country_of_Origin;
 	String genre;
-	String Maximum_Viewing_Length;
+	String maximum_Viewing_Length;
 	int suggested_Price;
 	int propagation_Priority;
 	String longTail_YN;
@@ -50,17 +52,19 @@ public class Title {
 	String distributor_Royalty_Minimum;
 	String distributor_Royalty_Flat_Rate;
 	String distributor_Name;
-	int billing_ID;
 	
-	
-	
-	public String getType() {
-		return type;
+	public int getPackage_Id() {
+		return package_Id;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setPackage_Id(int package_Id) {
+		this.package_Id = package_Id;
 	}
-	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getAsset_Id() {
 		return asset_Id;
 	}
@@ -73,11 +77,11 @@ public class Title {
 	public void setAsset_Class(String asset_Class) {
 		this.asset_Class = asset_Class;
 	}
-	public String getDescription() {
-		return description;
+	public String getType() {
+		return type;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getTitle() {
 		return title;
@@ -97,10 +101,10 @@ public class Title {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public int getRating() {
+	public String getRating() {
 		return rating;
 	}
-	public void setRating(int rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 	public String getSummary_Short() {
@@ -127,6 +131,12 @@ public class Title {
 	public void setProvider_QA_Contact(String provider_QA_Contact) {
 		this.provider_QA_Contact = provider_QA_Contact;
 	}
+	public String getBilling_Id() {
+		return billing_Id;
+	}
+	public void setBilling_Id(String billing_Id) {
+		this.billing_Id = billing_Id;
+	}
 	public String getLicensing_Window_Start() {
 		return licensing_Window_Start;
 	}
@@ -139,10 +149,10 @@ public class Title {
 	public void setLicensing_Window_End(String licensing_Window_End) {
 		this.licensing_Window_End = licensing_Window_End;
 	}
-	public String getPreview_Period() {
+	public int getPreview_Period() {
 		return preview_Period;
 	}
-	public void setPreview_Period(String preview_Period) {
+	public void setPreview_Period(int preview_Period) {
 		this.preview_Period = preview_Period;
 	}
 	public String getTitle_Sort_Name() {
@@ -157,11 +167,11 @@ public class Title {
 	public void setEpisode_Name(String episode_Name) {
 		this.episode_Name = episode_Name;
 	}
-	public int getEpisode_id() {
-		return episode_id;
+	public String getEpisode_Id() {
+		return episode_Id;
 	}
-	public void setEpisode_id(int episode_id) {
-		this.episode_id = episode_id;
+	public void setEpisode_Id(String episode_Id) {
+		this.episode_Id = episode_Id;
 	}
 	public String getSummary_Medium() {
 		return summary_Medium;
@@ -254,10 +264,10 @@ public class Title {
 		this.genre = genre;
 	}
 	public String getMaximum_Viewing_Length() {
-		return Maximum_Viewing_Length;
+		return maximum_Viewing_Length;
 	}
 	public void setMaximum_Viewing_Length(String maximum_Viewing_Length) {
-		Maximum_Viewing_Length = maximum_Viewing_Length;
+		this.maximum_Viewing_Length = maximum_Viewing_Length;
 	}
 	public int getSuggested_Price() {
 		return suggested_Price;
@@ -349,11 +359,4 @@ public class Title {
 	public void setDistributor_Name(String distributor_Name) {
 		this.distributor_Name = distributor_Name;
 	}
-	public int getBilling_ID() {
-		return billing_ID;
-	}
-	public void setBilling_ID(int billing_ID) {
-		this.billing_ID = billing_ID;
-	}
-	
 }

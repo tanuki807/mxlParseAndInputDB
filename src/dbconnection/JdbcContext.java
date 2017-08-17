@@ -14,9 +14,9 @@ public class JdbcContext {
 	public void executeSql(final String query) {
 		workWithStatementStrategy(
 				new StatementStrategy() {
-					public PreparedStatement makePreparedStatement(Connection c) 
+					public PreparedStatement makePreparedStatement(Connection con) 
 								throws SQLException {
-							return c.prepareStatement(query);
+							return con.prepareStatement(query);
 					}
 				}
 		);
@@ -25,13 +25,13 @@ public class JdbcContext {
 		
 	
 	public void workWithStatementStrategy(StatementStrategy stmt) {
-		Connection c = null;
-		PreparedStatement ps = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
 		
 		try {
-			c = connectionMaker.makeConnection();
-			ps = stmt.makePreparedStatement(c);
-			ps.executeUpdate();
+			con = connectionMaker.makeConnection();
+			pstmt = stmt.makePreparedStatement(con);
+			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("SQLException!!"+e.getMessage());
@@ -42,15 +42,15 @@ public class JdbcContext {
 			System.exit(0);
 		}
 		finally {
-			if(ps!=null) {
+			if(pstmt!=null) {
 				try {
-					ps.close();
+					pstmt.close();
 				} catch(SQLException e) {}
 			}
 			
-			if(c!=null) {
+			if(con!=null) {
 				try {
-					c.close();
+					con.close();
 				} catch(SQLException e) {}
 			}
 		}

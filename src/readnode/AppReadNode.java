@@ -12,11 +12,9 @@ import org.w3c.dom.NodeList;
 
 import dao.ActorsDao;
 import dao.AppDao;
-import dao.Publication_TypeDao;
 import domain.Actors;
 import domain.App;
 import domain.Content;
-import domain.Publication_Type;
 import factory.DaoFactory;
 import xmlparse.XmlParse;
 
@@ -34,8 +32,6 @@ public class AppReadNode implements ReadNode {
 	//실제 table vo
 	private App app;
 	private AppDao appDao;
-	private Publication_Type pub_Type;
-	private Publication_TypeDao pubDao;
 	private Actors actors;
 	private ActorsDao actorDao;
 	private Content content;
@@ -54,8 +50,6 @@ public class AppReadNode implements ReadNode {
 		
 		app = new App();
 		appDao = new DaoFactory().appDao();
-		pub_Type = new Publication_Type();
-		pubDao = new DaoFactory().pubDao();
 		actors = new Actors();
 		actorDao = new DaoFactory().actorDao();
 		content = new Content();
@@ -109,8 +103,7 @@ public class AppReadNode implements ReadNode {
 						System.out.println("Title:" + app_DataTag.getTitle());
 						
 						app.setTitle(value);
-						pub_Type.setTitle(value);
-						actors.setTitle(value);
+						//actors.setTitle(value);
 						content.setTitle(value);
 						break;
 					case "Title_Brief" :
@@ -495,15 +488,12 @@ public class AppReadNode implements ReadNode {
 			}
 		}
 		actors.setActors(actorsValue);
-		pub_Type.setPublication_Right(publication_RightValue);
-		pub_Type.setType(typeValue);
 		content.setAdvisories(advisoriesValue);
 		content.setContent_FileSize(content_FileSizeValue);
 		content.setContent_CheckSum(content_CheckSumValue);
 		conReadNode.setContent(content);
 		app_DataAdd(app);
-		pub_TypeAdd(pub_Type);
-		actorsAdd(actors);
+		//actorsAdd(actors);
 		//return app_Data;
 		return app;
 	}
@@ -519,22 +509,12 @@ public class AppReadNode implements ReadNode {
 		appDao.add(app);
 	}
 	
-	//publication_type table add
-	private void pub_TypeAdd(Publication_Type pub_Type) {
-		String title = pub_Type.getTitle();
-		Iterator<String> publicationIt = pub_Type.getPublication_Right().iterator();
-		Iterator<String> typeIt = pub_Type.getType().iterator();
-		while(publicationIt.hasNext()) {
-			pubDao.add(publicationIt.next(), typeIt.next(), title);
-		}
-	}
-	
 	//actors table add
-	private void actorsAdd(Actors actor) {
-		String title = actor.getTitle();
-		Iterator<String> actorIt = actor.getActors().iterator();
-		while(actorIt.hasNext()) {
-			actorDao.add(title, actorIt.next());
-		}
-	}
+//	private void actorsAdd(Actors actor) {
+//		String title = actor.getTitle();
+//		Iterator<String> actorIt = actor.getActors().iterator();
+//		while(actorIt.hasNext()) {
+//			actorDao.add(title, actorIt.next());
+//		}
+//	}
 }

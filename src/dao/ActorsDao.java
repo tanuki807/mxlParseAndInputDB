@@ -6,6 +6,6 @@ import readnode.App_DataTag;
 
 public interface ActorsDao {
 	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(String title, String actor);
+	void add(int package_Id, String actor);
 	void deleteAll();
 }

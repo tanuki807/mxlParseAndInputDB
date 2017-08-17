@@ -1,15 +1,16 @@
-package dao;
+package daoimpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import dao.ContentDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
 
-public class Publication_TypeDaoJdbc implements Publication_TypeDao {
+public class ContentDaoJdbc implements ContentDao {
 	private ConnectionMaker connectionMaker;
 	private JdbcContext jdbcContext;
 	
@@ -27,7 +28,7 @@ public class Publication_TypeDaoJdbc implements Publication_TypeDao {
 		
 		try {
 			c = connectionMaker.makeConnection();
-			ps = c.prepareStatement("select count(*) from pub_type");
+			ps = c.prepareStatement("select count(*) from content");
 			rs = ps.executeQuery();
 			rs.next();
 			return rs.getInt(1);
@@ -59,19 +60,20 @@ public class Publication_TypeDaoJdbc implements Publication_TypeDao {
 	}
 
 	@Override
-	public void add(String publication, String type, String title) {
+	public void add(String title, String advisories, String content_FileSize, String content_CheckSum, String value) {
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 						PreparedStatement ps = c.prepareStatement(
-						"insert into pub_type("
-										+ "title, publication_Right, type) "
-										+ "values(?,?,?)") ;
+						"insert into content("
+										+ "title, advisories, content_FileSize, content_CheckSum, value) "
+										+ "values(?,?,?,?,?)") ;
 						
 						ps.setString(1, title);
-						ps.setString(2, publication);
-						ps.setString(3, type);
-						
+						ps.setString(2, advisories);
+						ps.setString(3, content_FileSize);
+						ps.setString(4, content_CheckSum);
+						ps.setString(5, value);
 						return ps;
 				 }
 			  }
@@ -80,6 +82,6 @@ public class Publication_TypeDaoJdbc implements Publication_TypeDao {
 
 	@Override
 	public void deleteAll() {
-		this.jdbcContext.executeSql("delete from pub_type");
+		this.jdbcContext.executeSql("delete from content");
 	}
 }

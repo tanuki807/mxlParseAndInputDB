@@ -1,11 +1,12 @@
-package domain;
+package table;
 
 import readnode.Xml;
 
 public class Package_Table implements Xml {
+	int package_Id;
+	String asset_Class;
 	String asset_Id;
 	String asset_Name;
-	String asset_Class;
 	String creation_Date;
 	String description;
 	String product;
@@ -17,6 +18,12 @@ public class Package_Table implements Xml {
 	String provider_Content_Tier;
 	String metadata_Spec_Version;
 	
+	public int getPackage_Id() {
+		return package_Id;
+	}
+	public void setPackage_Id(int package_Id) {
+		this.package_Id = package_Id;
+	}
 	public String getAsset_Class() {
 		return asset_Class;
 	}
@@ -95,5 +102,4 @@ public class Package_Table implements Xml {
 	public void setMetadata_Spec_Version(String metadata_Spec_Version) {
 		this.metadata_Spec_Version = metadata_Spec_Version;
 	}
-	
 }
