@@ -10,13 +10,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import dao.ActorsDao;
-import dao.AppDao;
 import domain.Actors;
 import domain.App;
 import domain.Content;
-import factory.DaoFactory;
-import xmlparse.XmlParse;
 
 public class AppReadNode implements ReadNode {
 	//App_Data tag vo
@@ -31,9 +27,7 @@ public class AppReadNode implements ReadNode {
 	
 	//실제 table vo
 	private App app;
-	private AppDao appDao;
 	private Actors actors;
-	private ActorsDao actorDao;
 	private Content content;
 	private ContentReadNode conReadNode;
 	
@@ -49,9 +43,7 @@ public class AppReadNode implements ReadNode {
 		
 		
 		app = new App();
-		appDao = new DaoFactory().appDao();
 		actors = new Actors();
-		actorDao = new DaoFactory().actorDao();
 		content = new Content();
 	}
 	
@@ -506,7 +498,7 @@ public class AppReadNode implements ReadNode {
 	
 	//app_data table add
 	private void app_DataAdd(App app) {
-		appDao.add(app);
+		//appDao.add(app);
 	}
 	
 	//actors table add

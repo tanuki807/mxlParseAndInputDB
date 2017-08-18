@@ -1,6 +1,6 @@
 package table;
 
-public class Movie_Table {
+public class Movie_Table implements Table {
 	int package_Id;
 	String description;
 	String asset_Id;

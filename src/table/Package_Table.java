@@ -2,7 +2,7 @@ package table;
 
 import readnode.Xml;
 
-public class Package_Table implements Xml {
+public class Package_Table implements Table {
 	int package_Id;
 	String asset_Class;
 	String asset_Id;

@@ -1,11 +1,10 @@
 package dao;
 
-import java.sql.SQLException;
-
-import table.Package_Table;
+import table.Table;
 
 public interface JdbcDao {
-	int getCount() throws ClassNotFoundException, SQLException;	
-	void add(Package_Table package_Table);
+	int getCount();
+	int getFind_PK();
+	void add(Table table);
 	void deleteAll();
 }

@@ -10,10 +10,12 @@ import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
 import dbconnection.StatementStrategy;
 import table.Package_Table;
+import table.Table;
 
 public class PackageJdbcDaoImpl implements JdbcDao {
 	private ConnectionMaker connectionMaker;
 	private JdbcContext jdbcContext;
+	private Package_Table package_Table;
 	
 	public void setConnectionMaker(ConnectionMaker connectionMaker) {
 		this.jdbcContext = new JdbcContext();
@@ -21,52 +23,51 @@ public class PackageJdbcDaoImpl implements JdbcDao {
 		this.connectionMaker = connectionMaker;
 	}
 	
-	public int getMaxPackage_Id() throws ClassNotFoundException, SQLException {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet resultSet = null;
+	@Override
+	public int getFind_PK() {
 		
-		try {
-			con = connectionMaker.makeConnection();
-			pstmt = con.prepareStatement("select max(package_Id) from package_table");
-			resultSet = pstmt.executeQuery();
-			resultSet.next();
-			return resultSet.getInt(1);
-		} catch(SQLException e) {
-			throw e;
-		} finally {
-			if(resultSet!=null) {
-				try {
-					resultSet.close();
-				} catch(SQLException e) {
-					
-				}
+		try (Connection con = connectionMaker.makeConnection();
+				 PreparedStatement pstmt = con.prepareStatement("select max(package_Id) from package_table");
+				 ResultSet resultSet = pstmt.executeQuery()) {
+				
+				resultSet.next();
+				return resultSet.getInt(1);
+			} catch(SQLException sqle) {
+				System.out.println("SQLException!!"+sqle.getMessage());
+				sqle.printStackTrace();
+				return -1;
+			} catch(ClassNotFoundException ce) {
+				System.out.println("ClassNotFoundException!!"+ce.getMessage());
+				ce.printStackTrace();
+				return -1;
 			}
-			if(pstmt!=null) {
-				try {
-					pstmt.close();
-				} catch(SQLException e) {
-					
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				} catch(SQLException e) {
-					
-				}
-			}
-		}
 	}
 	
 	@Override
-	public int getCount() throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getCount() {
+		
+		try (Connection con = connectionMaker.makeConnection();
+				 PreparedStatement pstmt = con.prepareStatement("select count(package_Id) from package_table");
+				 ResultSet resultSet = pstmt.executeQuery()) {
+				
+				resultSet.next();
+				return resultSet.getInt(1);
+			} catch(SQLException sqle) {
+				System.out.println("SQLException!!"+sqle.getMessage());
+				sqle.printStackTrace();
+				return -1;
+			} catch(ClassNotFoundException ce) {
+				System.out.println("ClassNotFoundException!!"+ce.getMessage());
+				ce.printStackTrace();
+				return -1;
+			}
 	}
 
 	@Override
-	public void add(Package_Table package_Table) {
+	public void add(Table table) {
+		if(table instanceof Package_Table) {
+			package_Table = (Package_Table)table;
+		}
 		this.jdbcContext.workWithStatementStrategy(
 				new StatementStrategy() {
 					public PreparedStatement makePreparedStatement(Connection con) throws SQLException {
@@ -98,8 +99,6 @@ public class PackageJdbcDaoImpl implements JdbcDao {
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
-
+		this.jdbcContext.executeSql("delete from package_table");
 	}
-
 }

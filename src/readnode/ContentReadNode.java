@@ -9,7 +9,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import dao.ContentDao;
 import domain.Content;
 import factory.DaoFactory;
 
@@ -17,12 +16,10 @@ public class ContentReadNode implements ReadNode {
 	private List<String> valueList;
 	private ContentTag contentTag;
 	private Content content;
-	private ContentDao contentDao;
 	
 	public ContentReadNode() {
 		contentTag = new ContentTag();
 		valueList = new ArrayList();
-		contentDao = new DaoFactory().contentDao();
 	}
 	
 	public void setContent(Content content) {
@@ -60,7 +57,7 @@ public class ContentReadNode implements ReadNode {
 		Iterator<String> valueIt = valueList.iterator();
 		
 		while(advisorIt.hasNext()) {
-			contentDao.add(title, advisorIt.next(), fileSizeIt.next(), checkSumIt.next(), valueIt.next());
+			//contentDao.add(title, advisorIt.next(), fileSizeIt.next(), checkSumIt.next(), valueIt.next());
 		}
 	}
 	

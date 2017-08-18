@@ -1,6 +1,5 @@
 package readnode;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,16 +8,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import dao.AmsDao;
 import domain.Ams;
 import domain.App;
-import factory.DaoFactory;
+
 
 
 public class AmsReadNode implements ReadNode {
 	private AmsTag amsTag;
 	private App app;
-	private AmsDao amsDao;
 	private Ams ams;
 	private List<String> asset_IdList;
 	private List<String> asset_ClassList;
@@ -30,7 +27,6 @@ public class AmsReadNode implements ReadNode {
 	
 	public AmsReadNode() {
 		amsTag = new AmsTag();
-		amsDao = new DaoFactory().amsDao();
 		ams = new Ams();
 		asset_IdList = new ArrayList();
 		asset_ClassList = new ArrayList();
@@ -106,7 +102,7 @@ public class AmsReadNode implements ReadNode {
 		Iterator<String> classIt = ams.getAsset_Class().iterator();
 		Iterator<String> descriptionIt = ams.getDescription().iterator();
 		while(idListIt.hasNext()) {
-			amsDao.add(ams.getTitle(), idListIt.next(), classIt.next(), descriptionIt.next());
+			//amsDao.add(ams.getTitle(), idListIt.next(), classIt.next(), descriptionIt.next());
 		}
 	}
 	

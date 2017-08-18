@@ -25,12 +25,10 @@ public class JdbcContext {
 		
 	
 	public void workWithStatementStrategy(StatementStrategy stmt) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
 		
-		try {
-			con = connectionMaker.makeConnection();
-			pstmt = stmt.makePreparedStatement(con);
+		try (Connection con = connectionMaker.makeConnection();
+			 PreparedStatement pstmt = stmt.makePreparedStatement(con)) {
+			
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -40,19 +38,6 @@ public class JdbcContext {
 			ce.printStackTrace();
 			System.out.println("ClassNotFoundException!!"+ce.getMessage());
 			System.exit(0);
-		}
-		finally {
-			if(pstmt!=null) {
-				try {
-					pstmt.close();
-				} catch(SQLException e) {}
-			}
-			
-			if(con!=null) {
-				try {
-					con.close();
-				} catch(SQLException e) {}
-			}
 		}
 	}
 }
