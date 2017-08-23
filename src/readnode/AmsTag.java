@@ -1,6 +1,6 @@
 package readnode;
 
-public class AmsTag implements Xml {
+public class AmsTag {
 	String asset_Class;
 	String asset_Id;
 	String asset_Name;

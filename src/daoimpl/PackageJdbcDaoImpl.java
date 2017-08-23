@@ -75,8 +75,8 @@ public class PackageJdbcDaoImpl implements JdbcDao {
 				"insert into package_table("
 										+ "asset_Class, asset_Id, asset_Name, creation_Date, description, "
 										+ "product, provider, provider_ID, verb, version_Major, version_Minor, "
-										+ "provider_Content_Tier, metadata_Spec_Version) "
-										+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?)") ;
+										+ "provider_Content_Tier, metadata_Spec_Version, publication_Right) "
+										+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)") ;
 						
 						pstmt.setString(1, package_Table.getAsset_Class());
 						pstmt.setString(2, package_Table.getAsset_Id());
@@ -91,6 +91,7 @@ public class PackageJdbcDaoImpl implements JdbcDao {
 						pstmt.setInt(11, package_Table.getVersion_Minor());
 						pstmt.setString(12, package_Table.getProvider_Content_Tier());
 						pstmt.setString(13, package_Table.getMetadata_Spec_Version());
+						pstmt.setString(14, package_Table.getPublication_Right());
 						return pstmt;
 				 }
 			  }

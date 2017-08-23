@@ -79,8 +79,9 @@ public class MovieJdbcDaoImpl implements JdbcDao {
 											+ "subtitle_Languages, dubbed_Languages, copy_Protection, "
 											+ "copy_Protection_Verbose, analog_Protection_System, "
 											+ "encryption_Mode_Indicator, constrained_Image_Trigger, "
-											+ "cgms_A, HDContent, content_FileSize, content_CheckSum, value) "
-											+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)") ;
+											+ "cgms_A, HDContent, content_FileSize, content_CheckSum, value, "
+											+ "publication_Right, advisories) "
+											+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)") ;
 					
 					pstmt.setInt(1, movie_Table.getPackage_Id());
 					pstmt.setString(2, movie_Table.getDescription());
@@ -103,6 +104,8 @@ public class MovieJdbcDaoImpl implements JdbcDao {
 					pstmt.setString(19, movie_Table.getContent_FileSize());
 					pstmt.setString(20, movie_Table.getContent_CheckSum());
 					pstmt.setString(21, movie_Table.getValue());
+					pstmt.setString(22, movie_Table.getPublication_Right());
+					pstmt.setString(23, movie_Table.getAdvisories());
 					return pstmt;
 			 }
 		  }

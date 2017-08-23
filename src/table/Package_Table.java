@@ -1,7 +1,5 @@
 package table;
 
-import readnode.Xml;
-
 public class Package_Table implements Table {
 	int package_Id;
 	String asset_Class;
@@ -17,6 +15,7 @@ public class Package_Table implements Table {
 	int version_Minor;
 	String provider_Content_Tier;
 	String metadata_Spec_Version;
+	String publication_Right;
 	
 	public int getPackage_Id() {
 		return package_Id;
@@ -101,5 +100,11 @@ public class Package_Table implements Table {
 	}
 	public void setMetadata_Spec_Version(String metadata_Spec_Version) {
 		this.metadata_Spec_Version = metadata_Spec_Version;
+	}
+	public String getPublication_Right() {
+		return publication_Right;
+	}
+	public void setPublication_Right(String publication_Right) {
+		this.publication_Right = publication_Right;
 	}
 }

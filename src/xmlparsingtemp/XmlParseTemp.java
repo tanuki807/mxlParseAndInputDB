@@ -23,17 +23,14 @@ import daoimpl.MovieJdbcDaoImpl;
 import daoimpl.PackageJdbcDaoImpl;
 import daoimpl.PosterJdbcDaoImpl;
 import daoimpl.TitleJdbcDaoImpl;
-import domain.Actors;
 import factory.DaoFactory;
 import readnode.AmsTag;
 import readnode.App_DataTag;
 import readnode.ContentTag;
 import table.Actors_Table;
-import table.Advisories_Table;
 import table.Movie_Table;
 import table.Package_Table;
 import table.Poster_Table;
-import table.Publication_Table;
 import table.Title_Table;
 
 public class XmlParseTemp {
@@ -55,8 +52,6 @@ public class XmlParseTemp {
 	private JdbcDao titleJdbcDao;
 	private JdbcDao movieJdbcDao;
 	private JdbcDao posterJdbcDao;
-	private JdbcDao publicationJdbcDao;
-	private JdbcDao advisoriesJdbcDao;
 	
 	private List<String> publication_RightValueList;
 	private List<String> typeValueList;
@@ -73,8 +68,6 @@ public class XmlParseTemp {
 		movieJdbcDao = new DaoFactory().movieJdbcDao();
 		posterJdbcDao = new DaoFactory().posterJdbcDao();
 		actorsJdbcDao = new DaoFactory().actorDao();
-		publicationJdbcDao = new DaoFactory().publicationDao();
-		advisoriesJdbcDao = new DaoFactory().advisoriesDao();
 	}
 	
 	public void tagReadWithPrint() throws ParserConfigurationException {
@@ -406,11 +399,9 @@ public class XmlParseTemp {
 //		this.titleJdbcDao.deleteAll();;
 //		this.movieJdbcDao.deleteAll();;
 //		this.posterJdbcDao.deleteAll();;
-//		this.publicationJdbcDao.deleteAll();;
-//		this.advisoriesJdbcDao.deleteAll();;
 //		int package_IdCount = this.packageJdbcDao.getCount();
 //		System.out.println("package_Id :"+package_IdCount);
-		
+			
 		//package_table
 		AmsTag ams1 = amsList.get(0);
 		Package_Table package_Table = new Package_Table();
@@ -427,8 +418,11 @@ public class XmlParseTemp {
 		package_Table.setVersion_Minor(ams1.getVersion_Minor());
 		package_Table.setProvider_Content_Tier(appTag.getProvider_Content_Tier());
 		package_Table.setMetadata_Spec_Version(appTag.getMetadata_Spec_Version());
+		if(publication_RightValueList.get(0)!=null){
+			package_Table.setPublication_Right(publication_RightValueList.get(0));
+		}
 		packageJdbcDao.add(package_Table);
-		
+	
 		int package_Id = packageJdbcDao.getFind_PK();
 		//title_table
 		AmsTag ams2 = amsList.get(1);
@@ -528,6 +522,12 @@ public class XmlParseTemp {
 		if(conTag.getVlaue().get(0)!=null) {
 			movie_Table.setValue(conTag.getVlaue().get(0));
 		}
+		if(publication_RightValueList.size() > 1) {
+			movie_Table.setPublication_Right(publication_RightValueList.get(1));
+		}
+		if(advisorieValueList.get(0)!=null) {
+			movie_Table.setAdvisories(advisorieValueList.get(0));
+		}
 		movieJdbcDao.add(movie_Table);
 		
 		//poster_table
@@ -550,6 +550,12 @@ public class XmlParseTemp {
 			poster_Table.setValue(conTag.getVlaue().get(1));
 		}
 		poster_Table.setImage_Aspect_Ratio(appTag.getImage_Aspect_Ratio());
+		if(publication_RightValueList.size() > 2) {
+			poster_Table.setPublication_Right(publication_RightValueList.get(2));
+		}
+		if(advisorieValueList.get(1)!=null) {
+			poster_Table.setAdvisories(advisorieValueList.get(1));
+		}
 		posterJdbcDao.add(poster_Table);
 		
 		//actors_table
@@ -559,24 +565,6 @@ public class XmlParseTemp {
 			actors_Table.setPackage_Id(package_Id);
 			actors_Table.setActor(actorListIt.next());
 			actorsJdbcDao.add(actors_Table);
-		}
-		
-		//publication_table
-		Iterator<String> publicationListIt = publication_RightValueList.iterator();
-		while(publicationListIt.hasNext()) {
-			Publication_Table publication_Table = new Publication_Table();
-			publication_Table.setPackage_Id(package_Id);
-			publication_Table.setPublication_Right(publicationListIt.next());
-			publicationJdbcDao.add(publication_Table);
-		}
-		
-		//advisories_table
-		Iterator<String> advisoriesListIt = advisorieValueList.iterator();
-		while(advisoriesListIt.hasNext()) {
-			Advisories_Table advisories_Table = new Advisories_Table();
-			advisories_Table.setPackage_Id(package_Id);
-			advisories_Table.setAdvisories(advisoriesListIt.next());
-			advisoriesJdbcDao.add(advisories_Table);
 		}
 	}
 	

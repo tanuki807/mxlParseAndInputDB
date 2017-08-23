@@ -75,8 +75,9 @@ public class PosterJdbcDaoImpl implements JdbcDao {
 					PreparedStatement pstmt = con.prepareStatement(
 					"insert into poster_table("
 											+ "package_Id, description, asset_Id, asset_Class, type, "
-											+ "content_FileSize, content_CheckSum, value, image_Aspect_Ratio) "
-											+ "values(?,?,?,?,?,?,?,?,?)") ;
+											+ "content_FileSize, content_CheckSum, value, image_Aspect_Ratio, "
+											+ "publication_Right, advisories) "
+											+ "values(?,?,?,?,?,?,?,?,?,?,?)") ;
 					
 					pstmt.setInt(1, poster_Table.getPackage_Id());
 					pstmt.setString(2, poster_Table.getDescription());
@@ -87,6 +88,8 @@ public class PosterJdbcDaoImpl implements JdbcDao {
 					pstmt.setString(7, poster_Table.getContent_CheckSum());
 					pstmt.setString(8, poster_Table.getValue());
 					pstmt.setString(9, poster_Table.getImage_Aspect_Ratio());
+					pstmt.setString(10, poster_Table.getPublication_Right());
+					pstmt.setString(11, poster_Table.getAdvisories());
 					return pstmt;
 			 }
 		  }

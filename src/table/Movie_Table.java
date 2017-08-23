@@ -22,6 +22,8 @@ public class Movie_Table implements Table {
 	String content_FileSize;
 	String content_CheckSum;
 	String value;
+	String publication_Right;
+	String advisories;
 	
 	public int getPackage_Id() {
 		return package_Id;
@@ -148,5 +150,17 @@ public class Movie_Table implements Table {
 	}
 	public void setValue(String value) {
 		this.value = value;
+	}
+	public String getPublication_Right() {
+		return publication_Right;
+	}
+	public void setPublication_Right(String publication_Right) {
+		this.publication_Right = publication_Right;
+	}
+	public String getAdvisories() {
+		return advisories;
+	}
+	public void setAdvisories(String advisories) {
+		this.advisories = advisories;
 	}
 }

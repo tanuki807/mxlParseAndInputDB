@@ -3,7 +3,7 @@ package readnode;
 
 import java.util.List;
 
-public class App_DataTag implements Xml {
+public class App_DataTag {
 	String Provider_Content_Tier;
 	String Metadata_Spec_Version;
 	List<String> Publication_Right;

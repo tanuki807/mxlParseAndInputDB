@@ -10,6 +10,8 @@ public class Poster_Table implements Table {
 	String content_CheckSum;
 	String value;
 	String image_Aspect_Ratio;
+	String publication_Right;
+	String advisories;
 	
 	public int getPackage_Id() {
 		return package_Id;
@@ -64,5 +66,17 @@ public class Poster_Table implements Table {
 	}
 	public void setImage_Aspect_Ratio(String image_Aspect_Ratio) {
 		this.image_Aspect_Ratio = image_Aspect_Ratio;
+	}
+	public String getPublication_Right() {
+		return publication_Right;
+	}
+	public void setPublication_Right(String publication_Right) {
+		this.publication_Right = publication_Right;
+	}
+	public String getAdvisories() {
+		return advisories;
+	}
+	public void setAdvisories(String advisories) {
+		this.advisories = advisories;
 	}
 }
