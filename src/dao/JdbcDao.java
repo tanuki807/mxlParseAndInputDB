@@ -4,7 +4,7 @@ import table.Table;
 
 public interface JdbcDao {
 	int getCount();
-	int getFind_PK();
+	int getFindMaxPK();
 	void add(Table table);
 	void deleteAll();
 }

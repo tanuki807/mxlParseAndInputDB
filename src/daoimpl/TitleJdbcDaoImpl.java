@@ -24,43 +24,13 @@ public class TitleJdbcDaoImpl implements JdbcDao{
 	}
 	
 	@Override
-	public int getFind_PK() {
-		
-		try (Connection con = connectionMaker.makeConnection();
-				 PreparedStatement pstmt = con.prepareStatement("select max(title_Id) from title_table");
-				 ResultSet resultSet = pstmt.executeQuery()) {
-				
-				resultSet.next();
-				return resultSet.getInt(1);
-			} catch(SQLException sqle) {
-				System.out.println("SQLException!!"+sqle.getMessage());
-				sqle.printStackTrace();
-				return -1;
-			} catch(ClassNotFoundException ce) {
-				System.out.println("ClassNotFoundException!!"+ce.getMessage());
-				ce.printStackTrace();
-				return -1;
-			}
+	public int getFindMaxPK() {
+		return this.jdbcContext.queryForInt("select max(title_Id) from title_table");
 	}
 	
 	@Override
 	public int getCount() {
-		
-		try (Connection con = connectionMaker.makeConnection();
-				 PreparedStatement pstmt = con.prepareStatement("select count(title_Id) from title_table");
-				 ResultSet resultSet = pstmt.executeQuery()) {
-				
-				resultSet.next();
-				return resultSet.getInt(1);
-			} catch(SQLException sqle) {
-				System.out.println("SQLException!!"+sqle.getMessage());
-				sqle.printStackTrace();
-				return -1;
-			} catch(ClassNotFoundException ce) {
-				System.out.println("ClassNotFoundException!!"+ce.getMessage());
-				ce.printStackTrace();
-				return -1;
-			}
+		return this.jdbcContext.queryForInt("select count(title_Id) from title_table");
 	}
 	
 	@Override
