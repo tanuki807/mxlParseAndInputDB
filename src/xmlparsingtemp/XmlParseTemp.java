@@ -35,8 +35,8 @@ import table.Title_Table;
 
 public class XmlParseTemp {
 	
-	//final static String filePath = "C:\\Users\\pandora\\Desktop\\xml";
-	final static String filePath = "C:\\java_workspace\\xmlParse\\src\\xml";
+	final static String filePath = "C:\\Users\\pandora\\Desktop\\xml";
+	//final static String filePath = "C:\\java_workspace\\xmlParse\\src\\xml";
 	static DocumentBuilderFactory domFactoty;
 	static DocumentBuilder domBuilder;
 	static Document doc;
@@ -423,149 +423,150 @@ public class XmlParseTemp {
 		}
 		packageJdbcDao.add(package_Table);
 	
-//		int package_Id = packageJdbcDao.getFindMaxPK();
-//		//title_table
-//		AmsTag ams2 = amsList.get(1);
-//		Title_Table title_Table = new Title_Table();
-//		title_Table.setPackage_Id(package_Id);
-//		title_Table.setDescription(ams2.getDescription());
-//		title_Table.setAsset_Id(ams2.getAsset_Id());
-//		title_Table.setAsset_Class(ams2.getAsset_Class());
-//		title_Table.setType(appTag.getType().get(0));
-//		title_Table.setTitle(appTag.getTitle());
-//		title_Table.setTitle_Brief(appTag.getTitle_Brief());
-//		title_Table.setCategory(appTag.getCategory());
-//		title_Table.setRating(appTag.getRating());
-//		title_Table.setSummary_Short(appTag.getSummary_Short());
-//		title_Table.setRun_Time(appTag.getRun_Time());
-//		title_Table.setDisplay_Run_Time(appTag.getDisplay_Run_Time());
-//		title_Table.setProvider_QA_Contact(appTag.getProvider_QA_Contact());
-//		title_Table.setBilling_Id(appTag.getBilling_ID());
-//		title_Table.setLicensing_Window_Start(appTag.getLicensing_Window_Start());
-//		title_Table.setLicensing_Window_End(appTag.getLicensing_Window_End());
-//		title_Table.setPreview_Period(Integer.parseInt(appTag.getPreview_Period()));
-//		title_Table.setTitle_Sort_Name(appTag.getTitle_Sort_Name());
-//		title_Table.setEpisode_Name(appTag.getEpisode_Name());
-//		title_Table.setEpisode_Id(appTag.getEpisode_id());
-//		title_Table.setSummary_Medium(appTag.getSummary_Medium());
-//		title_Table.setSummary_Long(appTag.getSummary_Long());
-//		title_Table.setActors_Display(appTag.getActors_Display());
-//		title_Table.setChapter(appTag.getChapter());
-//		title_Table.setStudio_Name(appTag.getStudio_Name());
-//		title_Table.setStudio(appTag.getStudio());
-//		title_Table.setClosed_Captioning(appTag.getClosed_Captioning());
-//		title_Table.setSeason_Premiere(appTag.getSeason_Premiere());
-//		title_Table.setSeason_Finale(appTag.getSeason_Finale());
-//		title_Table.setDisplay_As_New(appTag.getDisplay_As_New());
-//		title_Table.setDisplay_As_Last_Chance(appTag.getDisplay_As_Last_Chance());
-//		title_Table.setSubscriber_View_Limit(appTag.getSubscriber_View_Limit());
-//		title_Table.setYear(appTag.getYear());
-//		title_Table.setCountry_of_Origin(appTag.getCountry_of_Origin());
-//		title_Table.setGenre(appTag.getGenre());
-//		title_Table.setMaximum_Viewing_Length(appTag.getMaximum_Viewing_Length());
-//		title_Table.setSuggested_Price(Integer.parseInt(appTag.getSuggested_Price()));
-//		title_Table.setPropagation_Priority(Integer.parseInt(appTag.getPropagation_Priority()));
-//		title_Table.setLongTail_YN(appTag.getLongTail_YN());
-//		title_Table.setStudio_Royalty_Percent(appTag.getStudio_Royalty_Percent());
-//		title_Table.setStudio_Royalty_Minimum(appTag.getStudio_Royalty_Minimum());
-//		title_Table.setStudio_Royalty_Flat_Rate(appTag.getStudio_Royalty_Flat_Rate());
-//		title_Table.setDirector(appTag.getDirector());
-//		title_Table.setWriter_Display(appTag.getWriter_Display());
-//		title_Table.setProducer(appTag.getProducer());
-//		title_Table.setHome_Video_Window(appTag.getHome_Video_Window());
-//		title_Table.setContract_Name(appTag.getContract_Name());
-//		title_Table.setDistributor_Royalty_Percent(appTag.getDistributor_Royalty_Percent());
-//		title_Table.setDistributor_Royalty_Minimum(appTag.getDistributor_Royalty_Minimum());
-//		title_Table.setDistributor_Royalty_Flat_Rate(appTag.getDistributor_Royalty_Flat_Rate());
-//		title_Table.setDistributor_Name(appTag.getDistributor_Name());
-//		titleJdbcDao.add(title_Table);
-//		
-//		//movie_table
-//		AmsTag ams3 = amsList.get(2);
-//		Movie_Table movie_Table = new Movie_Table();
-//		movie_Table.setPackage_Id(package_Id);
-//		movie_Table.setDescription(ams3.getDescription());
-//		movie_Table.setAsset_Id(ams3.getAsset_Id());
-//		movie_Table.setAsset_Class(ams3.getAsset_Class());
-//		if(appTag.getType().get(1)!=null) {
-//			movie_Table.setType(appTag.getType().get(1));
-//		}
-//		movie_Table.setEncryption(appTag.getEncryption());
-//		movie_Table.setAudio_Type(appTag.getAudio_Type());
-//		movie_Table.setScreen_Format(appTag.getScreen_Format());
-//		movie_Table.setLanguages(appTag.getLanguages());
-//		movie_Table.setSubtitle_Languages(appTag.getSubtitle_Languages());
-//		movie_Table.setDubbed_Languages(appTag.getDubbed_Languages());
-//		movie_Table.setCopy_Protection(appTag.getCopy_Protection());
-//		if(appTag.getCopy_Protection_Verbose()!=null) {
-//			movie_Table.setCopy_Protection_Verbose(appTag.getCopy_Protection_Verbose());
-//		}
-//		if(appTag.getAnalog_Protection_System()!=null) {
-//			movie_Table.setAnalog_Protection_System(Integer.parseInt(appTag.getAnalog_Protection_System()));
-//		}
-//		if(appTag.getEncryption_Mode_Indicator()!=null) {
-//			movie_Table.setEncryption_Mode_Indicator(Integer.parseInt(appTag.getEncryption_Mode_Indicator()));
-//		}
-//		if(appTag.getConstrained_Image_Trigger()!=null) {
-//			movie_Table.setConstrained_Image_Trigger(Integer.parseInt(appTag.getConstrained_Image_Trigger()));
-//		}
-//		if(appTag.getCGMS_A()!=null) {
-//			movie_Table.setCgms_A(Integer.parseInt(appTag.getCGMS_A()));
-//		}
-//		movie_Table.setHDContent(appTag.getHDContent());
-//		if(appTag.getContent_FileSize().get(0)!=null) {
-//			movie_Table.setContent_FileSize(appTag.getContent_FileSize().get(0));
-//		}
-//		if(appTag.getContent_CheckSum().get(0)!=null) {
-//			movie_Table.setContent_CheckSum(appTag.getContent_CheckSum().get(0));
-//		}
-//		if(conTag.getVlaue().get(0)!=null) {
-//			movie_Table.setValue(conTag.getVlaue().get(0));
-//		}
-//		if(publication_RightValueList.size() > 1) {
-//			movie_Table.setPublication_Right(publication_RightValueList.get(1));
-//		}
-//		if(advisorieValueList.get(0)!=null) {
-//			movie_Table.setAdvisories(advisorieValueList.get(0));
-//		}
-//		movieJdbcDao.add(movie_Table);
-//		
-//		//poster_table
-//		AmsTag ams4 = amsList.get(3);
-//		Poster_Table poster_Table = new Poster_Table();
-//		poster_Table.setPackage_Id(package_Id);
-//		poster_Table.setDescription(ams4.getDescription());
-//		poster_Table.setAsset_Id(ams4.getAsset_Id());
-//		poster_Table.setAsset_Class(ams4.getAsset_Class());
-//		if(appTag.getType().get(2)!=null) {
-//			poster_Table.setType(appTag.getType().get(2));
-//		}
-//		if(appTag.getContent_FileSize().get(1)!=null) {
-//			poster_Table.setContent_FileSize(appTag.getContent_FileSize().get(1));
-//		}
-//		if(appTag.getContent_CheckSum().get(1)!=null) {
-//			poster_Table.setContent_CheckSum(appTag.getContent_CheckSum().get(1));
-//		}
-//		if(conTag.getVlaue().get(1)!=null) {
-//			poster_Table.setValue(conTag.getVlaue().get(1));
-//		}
-//		poster_Table.setImage_Aspect_Ratio(appTag.getImage_Aspect_Ratio());
-//		if(publication_RightValueList.size() > 2) {
-//			poster_Table.setPublication_Right(publication_RightValueList.get(2));
-//		}
-//		if(advisorieValueList.get(1)!=null) {
-//			poster_Table.setAdvisories(advisorieValueList.get(1));
-//		}
-//		posterJdbcDao.add(poster_Table);
-//		
-//		//actors_table
-//		Iterator<String> actorListIt = actorValueList.iterator();
-//		while(actorListIt.hasNext()) {
-//			Actors_Table actors_Table = new Actors_Table();
-//			actors_Table.setPackage_Id(package_Id);
-//			actors_Table.setActor(actorListIt.next());
-//			actorsJdbcDao.add(actors_Table);
-//		}
+		int package_Id = packageJdbcDao.getFindMaxPK();
+
+		//title_table
+		AmsTag ams2 = amsList.get(1);
+		Title_Table title_Table = new Title_Table();
+		title_Table.setPackage_Id(package_Id);
+		title_Table.setDescription(ams2.getDescription());
+		title_Table.setAsset_Id(ams2.getAsset_Id());
+		title_Table.setAsset_Class(ams2.getAsset_Class());
+		title_Table.setType(appTag.getType().get(0));
+		title_Table.setTitle(appTag.getTitle());
+		title_Table.setTitle_Brief(appTag.getTitle_Brief());
+		title_Table.setCategory(appTag.getCategory());
+		title_Table.setRating(appTag.getRating());
+		title_Table.setSummary_Short(appTag.getSummary_Short());
+		title_Table.setRun_Time(appTag.getRun_Time());
+		title_Table.setDisplay_Run_Time(appTag.getDisplay_Run_Time());
+		title_Table.setProvider_QA_Contact(appTag.getProvider_QA_Contact());
+		title_Table.setBilling_Id(appTag.getBilling_ID());
+		title_Table.setLicensing_Window_Start(appTag.getLicensing_Window_Start());
+		title_Table.setLicensing_Window_End(appTag.getLicensing_Window_End());
+		title_Table.setPreview_Period(Integer.parseInt(appTag.getPreview_Period()));
+		title_Table.setTitle_Sort_Name(appTag.getTitle_Sort_Name());
+		title_Table.setEpisode_Name(appTag.getEpisode_Name());
+		title_Table.setEpisode_Id(appTag.getEpisode_id());
+		title_Table.setSummary_Medium(appTag.getSummary_Medium());
+		title_Table.setSummary_Long(appTag.getSummary_Long());
+		title_Table.setActors_Display(appTag.getActors_Display());
+		title_Table.setChapter(appTag.getChapter());
+		title_Table.setStudio_Name(appTag.getStudio_Name());
+		title_Table.setStudio(appTag.getStudio());
+		title_Table.setClosed_Captioning(appTag.getClosed_Captioning());
+		title_Table.setSeason_Premiere(appTag.getSeason_Premiere());
+		title_Table.setSeason_Finale(appTag.getSeason_Finale());
+		title_Table.setDisplay_As_New(appTag.getDisplay_As_New());
+		title_Table.setDisplay_As_Last_Chance(appTag.getDisplay_As_Last_Chance());
+		title_Table.setSubscriber_View_Limit(appTag.getSubscriber_View_Limit());
+		title_Table.setYear(appTag.getYear());
+		title_Table.setCountry_of_Origin(appTag.getCountry_of_Origin());
+		title_Table.setGenre(appTag.getGenre());
+		title_Table.setMaximum_Viewing_Length(appTag.getMaximum_Viewing_Length());
+		title_Table.setSuggested_Price(Integer.parseInt(appTag.getSuggested_Price()));
+		title_Table.setPropagation_Priority(Integer.parseInt(appTag.getPropagation_Priority()));
+		title_Table.setLongTail_YN(appTag.getLongTail_YN());
+		title_Table.setStudio_Royalty_Percent(appTag.getStudio_Royalty_Percent());
+		title_Table.setStudio_Royalty_Minimum(appTag.getStudio_Royalty_Minimum());
+		title_Table.setStudio_Royalty_Flat_Rate(appTag.getStudio_Royalty_Flat_Rate());
+		title_Table.setDirector(appTag.getDirector());
+		title_Table.setWriter_Display(appTag.getWriter_Display());
+		title_Table.setProducer(appTag.getProducer());
+		title_Table.setHome_Video_Window(appTag.getHome_Video_Window());
+		title_Table.setContract_Name(appTag.getContract_Name());
+		title_Table.setDistributor_Royalty_Percent(appTag.getDistributor_Royalty_Percent());
+		title_Table.setDistributor_Royalty_Minimum(appTag.getDistributor_Royalty_Minimum());
+		title_Table.setDistributor_Royalty_Flat_Rate(appTag.getDistributor_Royalty_Flat_Rate());
+		title_Table.setDistributor_Name(appTag.getDistributor_Name());
+		titleJdbcDao.add(title_Table);
+		
+		//movie_table
+		AmsTag ams3 = amsList.get(2);
+		Movie_Table movie_Table = new Movie_Table();
+		movie_Table.setPackage_Id(package_Id);
+		movie_Table.setDescription(ams3.getDescription());
+		movie_Table.setAsset_Id(ams3.getAsset_Id());
+		movie_Table.setAsset_Class(ams3.getAsset_Class());
+		if(appTag.getType().get(1)!=null) {
+			movie_Table.setType(appTag.getType().get(1));
+		}
+		movie_Table.setEncryption(appTag.getEncryption());
+		movie_Table.setAudio_Type(appTag.getAudio_Type());
+		movie_Table.setScreen_Format(appTag.getScreen_Format());
+		movie_Table.setLanguages(appTag.getLanguages());
+		movie_Table.setSubtitle_Languages(appTag.getSubtitle_Languages());
+		movie_Table.setDubbed_Languages(appTag.getDubbed_Languages());
+		movie_Table.setCopy_Protection(appTag.getCopy_Protection());
+		if(appTag.getCopy_Protection_Verbose()!=null) {
+			movie_Table.setCopy_Protection_Verbose(appTag.getCopy_Protection_Verbose());
+		}
+		if(appTag.getAnalog_Protection_System()!=null) {
+			movie_Table.setAnalog_Protection_System(Integer.parseInt(appTag.getAnalog_Protection_System()));
+		}
+		if(appTag.getEncryption_Mode_Indicator()!=null) {
+			movie_Table.setEncryption_Mode_Indicator(Integer.parseInt(appTag.getEncryption_Mode_Indicator()));
+		}
+		if(appTag.getConstrained_Image_Trigger()!=null) {
+			movie_Table.setConstrained_Image_Trigger(Integer.parseInt(appTag.getConstrained_Image_Trigger()));
+		}
+		if(appTag.getCGMS_A()!=null) {
+			movie_Table.setCgms_A(Integer.parseInt(appTag.getCGMS_A()));
+		}
+		movie_Table.setHDContent(appTag.getHDContent());
+		if(appTag.getContent_FileSize().get(0)!=null) {
+			movie_Table.setContent_FileSize(appTag.getContent_FileSize().get(0));
+		}
+		if(appTag.getContent_CheckSum().get(0)!=null) {
+			movie_Table.setContent_CheckSum(appTag.getContent_CheckSum().get(0));
+		}
+		if(conTag.getVlaue().get(0)!=null) {
+			movie_Table.setValue(conTag.getVlaue().get(0));
+		}
+		if(publication_RightValueList.size() > 1) {
+			movie_Table.setPublication_Right(publication_RightValueList.get(1));
+		}
+		if(advisorieValueList.get(0)!=null) {
+			movie_Table.setAdvisories(advisorieValueList.get(0));
+		}
+		movieJdbcDao.add(movie_Table);
+		
+		//poster_table
+		AmsTag ams4 = amsList.get(3);
+		Poster_Table poster_Table = new Poster_Table();
+		poster_Table.setPackage_Id(package_Id);
+		poster_Table.setDescription(ams4.getDescription());
+		poster_Table.setAsset_Id(ams4.getAsset_Id());
+		poster_Table.setAsset_Class(ams4.getAsset_Class());
+		if(appTag.getType().get(2)!=null) {
+			poster_Table.setType(appTag.getType().get(2));
+		}
+		if(appTag.getContent_FileSize().get(1)!=null) {
+			poster_Table.setContent_FileSize(appTag.getContent_FileSize().get(1));
+		}
+		if(appTag.getContent_CheckSum().get(1)!=null) {
+			poster_Table.setContent_CheckSum(appTag.getContent_CheckSum().get(1));
+		}
+		if(conTag.getVlaue().get(1)!=null) {
+			poster_Table.setValue(conTag.getVlaue().get(1));
+		}
+		poster_Table.setImage_Aspect_Ratio(appTag.getImage_Aspect_Ratio());
+		if(publication_RightValueList.size() > 2) {
+			poster_Table.setPublication_Right(publication_RightValueList.get(2));
+		}
+		if(advisorieValueList.get(1)!=null) {
+			poster_Table.setAdvisories(advisorieValueList.get(1));
+		}
+		posterJdbcDao.add(poster_Table);
+		
+		//actors_table
+		Iterator<String> actorListIt = actorValueList.iterator();
+		while(actorListIt.hasNext()) {
+			Actors_Table actors_Table = new Actors_Table();
+			actors_Table.setPackage_Id(package_Id);
+			actors_Table.setActor(actorListIt.next());
+			actorsJdbcDao.add(actors_Table);
+		}
 	}
 	
 	public  String getTagValue(String tag, Element element) {

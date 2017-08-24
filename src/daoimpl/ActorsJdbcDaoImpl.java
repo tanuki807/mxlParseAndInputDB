@@ -1,13 +1,8 @@
 package daoimpl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import dao.JdbcDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
-import dbconnection.StatementStrategy;
 import table.Actors_Table;
 import table.Table;
 
@@ -37,20 +32,8 @@ public class ActorsJdbcDaoImpl implements JdbcDao {
 		if(table instanceof Actors_Table) {
 			actors_Table = (Actors_Table)table;
 		}
-		this.jdbcContext.workWithStatementStrategy(
-				new StatementStrategy() {
-					public PreparedStatement makePreparedStatement(Connection con) throws SQLException {
-						PreparedStatement pstmt = con.prepareStatement(
-						"insert into actors_table("
-												+ "package_Id, actor) "
-												+ "values(?,?)") ;
-						
-						pstmt.setInt(1, actors_Table.getPackage_Id());
-						pstmt.setString(2, actors_Table.getActor());
-						return pstmt;
-				 }
-			  }
-		   );
+		this.jdbcContext.insert("insert into actors_table(package_Id, actor) values(?,?)", 
+								 actors_Table.getPackage_Id(), actors_Table.getActor());
 	}
 
 	@Override

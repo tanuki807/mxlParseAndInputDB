@@ -1,15 +1,8 @@
 package daoimpl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import dao.JdbcDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
-import dbconnection.StatementStrategy;
-import table.Movie_Table;
 import table.Poster_Table;
 import table.Table;
 
@@ -39,31 +32,17 @@ public class PosterJdbcDaoImpl implements JdbcDao {
 		if(table instanceof Poster_Table) {
 			poster_Table = (Poster_Table)table;
 		}
-		this.jdbcContext.workWithStatementStrategy(
-			new StatementStrategy() {
-				public PreparedStatement makePreparedStatement(Connection con) throws SQLException {
-					PreparedStatement pstmt = con.prepareStatement(
-					"insert into poster_table("
+		this.jdbcContext.insert("insert into poster_table("
 											+ "package_Id, description, asset_Id, asset_Class, type, "
 											+ "content_FileSize, content_CheckSum, value, image_Aspect_Ratio, "
 											+ "publication_Right, advisories) "
-											+ "values(?,?,?,?,?,?,?,?,?,?,?)") ;
-					
-					pstmt.setInt(1, poster_Table.getPackage_Id());
-					pstmt.setString(2, poster_Table.getDescription());
-					pstmt.setString(3, poster_Table.getAsset_Id());
-					pstmt.setString(4, poster_Table.getAsset_Class());
-					pstmt.setString(5, poster_Table.getType());
-					pstmt.setString(6, poster_Table.getContent_FileSize());
-					pstmt.setString(7, poster_Table.getContent_CheckSum());
-					pstmt.setString(8, poster_Table.getValue());
-					pstmt.setString(9, poster_Table.getImage_Aspect_Ratio());
-					pstmt.setString(10, poster_Table.getPublication_Right());
-					pstmt.setString(11, poster_Table.getAdvisories());
-					return pstmt;
-			 }
-		  }
-	   );
+											+ "values(?,?,?,?,?,?,?,?,?,?,?)", 
+											poster_Table.getPackage_Id(), poster_Table.getDescription(), 
+											poster_Table.getAsset_Id(), poster_Table.getAsset_Class(), 
+											poster_Table.getType(), poster_Table.getContent_FileSize(), 
+											poster_Table.getContent_CheckSum(), poster_Table.getValue(), 
+											poster_Table.getImage_Aspect_Ratio(), poster_Table.getPublication_Right(), 
+											poster_Table.getAdvisories());
 	}
 	
 	@Override

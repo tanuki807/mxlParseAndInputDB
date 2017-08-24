@@ -1,14 +1,8 @@
 package daoimpl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import dao.JdbcDao;
 import dbconnection.ConnectionMaker;
 import dbconnection.JdbcContext;
-import dbconnection.StatementStrategy;
 import table.Table;
 import table.Title_Table;
 
@@ -38,11 +32,7 @@ public class TitleJdbcDaoImpl implements JdbcDao{
 		if(table instanceof Title_Table) {
 			title_Table = (Title_Table)table;
 		}
-		this.jdbcContext.workWithStatementStrategy(
-				new StatementStrategy() {
-					public PreparedStatement makePreparedStatement(Connection con) throws SQLException {
-						PreparedStatement pstmt = con.prepareStatement(
-				"insert into title_table("
+		this.jdbcContext.insert("insert into title_table("
 										+ "package_Id, description, asset_Id, asset_Class, type, "
 										+ "title, title_Brief, category, rating, summary_Short, run_Time, display_Run_Time, "
 										+ "provider_QA_Contact, billing_ID, licensing_Window_Start, licensing_Window_End, "
@@ -55,63 +45,26 @@ public class TitleJdbcDaoImpl implements JdbcDao{
 										+ "home_Video_Window, contract_Name, distributor_Royalty_Percent, distributor_Royalty_Minimum, "
 										+ "distributor_Royalty_Flat_Rate, distributor_Name) "
 										+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
-										+ "		  ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)") ;
-						
-						pstmt.setInt(1, title_Table.getPackage_Id());
-						pstmt.setString(2, title_Table.getDescription());
-						pstmt.setString(3, title_Table.getAsset_Id());
-						pstmt.setString(4, title_Table.getAsset_Class());
-						pstmt.setString(5, title_Table.getType());
-						pstmt.setString(6, title_Table.getTitle());
-						pstmt.setString(7, title_Table.getTitle_Brief());
-						pstmt.setString(8, title_Table.getCategory());
-						pstmt.setString(9, title_Table.getRating());
-						pstmt.setString(10, title_Table.getSummary_Short());
-						pstmt.setString(11, title_Table.getRun_Time());
-						pstmt.setString(12, title_Table.getDisplay_Run_Time());
-						pstmt.setString(13, title_Table.getProvider_QA_Contact());
-						pstmt.setString(14, title_Table.getBilling_Id());
-						pstmt.setString(15, title_Table.getLicensing_Window_Start());
-						pstmt.setString(16, title_Table.getLicensing_Window_End());
-						pstmt.setInt(17, title_Table.getPreview_Period());
-						pstmt.setString(18, title_Table.getTitle_Sort_Name());
-						pstmt.setString(19, title_Table.getEpisode_Name());
-						pstmt.setString(20, title_Table.getEpisode_Id());
-						pstmt.setString(21, title_Table.getSummary_Medium());
-						pstmt.setString(22, title_Table.getSummary_Long());
-						pstmt.setString(23, title_Table.getActors_Display());
-						pstmt.setString(24, title_Table.getChapter());
-						pstmt.setString(25, title_Table.getStudio_Name());
-						pstmt.setString(26, title_Table.getStudio());
-						pstmt.setString(27, title_Table.getClosed_Captioning());
-						pstmt.setString(28, title_Table.getSeason_Premiere());
-						pstmt.setString(29, title_Table.getSeason_Finale());
-						pstmt.setString(30, title_Table.getDisplay_As_New());
-						pstmt.setString(31, title_Table.getDisplay_As_Last_Chance());
-						pstmt.setString(32, title_Table.getSubscriber_View_Limit());
-						pstmt.setString(33, title_Table.getYear());
-						pstmt.setString(34, title_Table.getCountry_of_Origin());
-						pstmt.setString(35, title_Table.getGenre());
-						pstmt.setString(36, title_Table.getMaximum_Viewing_Length());
-						pstmt.setInt(37, title_Table.getSuggested_Price());
-						pstmt.setInt(38, title_Table.getPropagation_Priority());
-						pstmt.setString(39, title_Table.getLongTail_YN());
-						pstmt.setString(40, title_Table.getStudio_Royalty_Percent());
-						pstmt.setString(41, title_Table.getStudio_Royalty_Minimum());
-						pstmt.setString(42, title_Table.getStudio_Royalty_Flat_Rate());
-						pstmt.setString(43, title_Table.getDirector());
-						pstmt.setString(44, title_Table.getWriter_Display());
-						pstmt.setString(45, title_Table.getProducer());
-						pstmt.setString(46, title_Table.getHome_Video_Window());
-						pstmt.setString(47, title_Table.getContract_Name());
-						pstmt.setString(48, title_Table.getDistributor_Royalty_Percent());
-						pstmt.setString(49, title_Table.getDistributor_Royalty_Minimum());
-						pstmt.setString(50, title_Table.getDistributor_Royalty_Flat_Rate());
-						pstmt.setString(51, title_Table.getDistributor_Name());
-						return pstmt;	
-				 }
-			  }
-		   );
+										+ "		  ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+										title_Table.getPackage_Id(), title_Table.getDescription(), title_Table.getAsset_Id(), 
+										title_Table.getAsset_Class(), title_Table.getType(), title_Table.getTitle(), 
+										title_Table.getTitle_Brief(), title_Table.getCategory(), title_Table.getRating(), 
+										title_Table.getSummary_Short(), title_Table.getRun_Time(), title_Table.getDisplay_Run_Time(), 
+										title_Table.getProvider_QA_Contact(), title_Table.getBilling_Id(), 
+										title_Table.getLicensing_Window_Start(), title_Table.getLicensing_Window_End(), 
+										title_Table.getPreview_Period(), title_Table.getTitle_Sort_Name(), title_Table.getEpisode_Name(), 
+										title_Table.getEpisode_Id(), title_Table.getSummary_Medium(), title_Table.getSummary_Long(), 
+										title_Table.getActors_Display(), title_Table.getChapter(), title_Table.getStudio_Name(), 
+										title_Table.getStudio(), title_Table.getClosed_Captioning(), title_Table.getSeason_Premiere(), 
+										title_Table.getSeason_Finale(), title_Table.getDisplay_As_New(), title_Table.getDisplay_As_Last_Chance(), 
+										title_Table.getSubscriber_View_Limit(), title_Table.getYear(), title_Table.getCountry_of_Origin(), 
+										title_Table.getGenre(), title_Table.getMaximum_Viewing_Length(), title_Table.getSuggested_Price(), 
+										title_Table.getPropagation_Priority(), title_Table.getLongTail_YN(), title_Table.getStudio_Royalty_Percent(), 
+										title_Table.getStudio_Royalty_Minimum(), title_Table.getStudio_Royalty_Flat_Rate(), 
+										title_Table.getDirector(), title_Table.getWriter_Display(), title_Table.getProducer(), 
+										title_Table.getHome_Video_Window(), title_Table.getContract_Name(), title_Table.getDistributor_Royalty_Percent(), 
+										title_Table.getDistributor_Royalty_Minimum(), title_Table.getDistributor_Royalty_Flat_Rate(), 
+										title_Table.getDistributor_Name());					
 	}
 	
 	@Override
