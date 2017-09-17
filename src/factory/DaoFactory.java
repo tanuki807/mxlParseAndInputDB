@@ -1,48 +1,62 @@
 package factory;
 
-import dao.JdbcDao;
-import daoimpl.ActorsJdbcDaoImpl;
-import daoimpl.MovieJdbcDaoImpl;
-import daoimpl.PackageJdbcDaoImpl;
-import daoimpl.PosterJdbcDaoImpl;
-import daoimpl.TitleJdbcDaoImpl;
-import dbconnection.ConnectionMaker;
-import dbconnection.JdbcConnectionMaker;
+import javax.sql.DataSource;
 
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+
+import dao.JdbcDao;
+import daoimpl.ActorJdbcDaoImpl;
+import daoimpl.AmsJdbcDaoImpl;
+import daoimpl.App_DataJdbcDaoImpl;
+import daoimpl.ContentJdbcDaoImpl;
+import daoimpl.M_PackageJdbcDaoImpl;
+import daoimpl.TypeJdbcDaoImpl;
 
 public class DaoFactory {
-	private ActorsJdbcDaoImpl actorDao = new ActorsJdbcDaoImpl();
-	private PackageJdbcDaoImpl packageJdbcDaoImpl = new PackageJdbcDaoImpl();
-	private TitleJdbcDaoImpl titleJdbcDaoImpl = new TitleJdbcDaoImpl();
-	private MovieJdbcDaoImpl movieJdbcDaoImpl = new MovieJdbcDaoImpl();
-	private PosterJdbcDaoImpl posterJdbcDaoImpl = new PosterJdbcDaoImpl(); 
+	private M_PackageJdbcDaoImpl m_PackageJdbcDao = new M_PackageJdbcDaoImpl();
+	private AmsJdbcDaoImpl amsJdbcDao = new AmsJdbcDaoImpl();
+	private ActorJdbcDaoImpl actorJdbcDao = new ActorJdbcDaoImpl();
+	private TypeJdbcDaoImpl typeJdbcDao = new TypeJdbcDaoImpl();
+	private ContentJdbcDaoImpl contentJdbcDao = new ContentJdbcDaoImpl();
+	private App_DataJdbcDaoImpl appJdbcDao = new App_DataJdbcDaoImpl();
 	
-	public JdbcDao posterJdbcDao() {
-		this.posterJdbcDaoImpl.setConnectionMaker(connectionMaker());
-		return this.posterJdbcDaoImpl;
+	public JdbcDao appDao() {
+		this.appJdbcDao.setDataSource(dataSource());
+		return this.appJdbcDao;
 	}
 	
-	public JdbcDao movieJdbcDao() {
-		this.movieJdbcDaoImpl.setConnectionMaker(connectionMaker());
-		return this.movieJdbcDaoImpl;
+	public JdbcDao contentDao() {
+		this.contentJdbcDao.setDataSource(dataSource());
+		return this.contentJdbcDao;
 	}
 	
-	public JdbcDao titleJdbcDao() {
-		this.titleJdbcDaoImpl.setConnectionMaker(connectionMaker());
-		return this.titleJdbcDaoImpl;
+	public JdbcDao typeDao() {
+		this.typeJdbcDao.setDataSource(dataSource());
+		return this.typeJdbcDao;
 	}
 	
-	public JdbcDao packageJdbcDao() {
-		this.packageJdbcDaoImpl.setConnectionMaker(connectionMaker());
-		return this.packageJdbcDaoImpl;
-	}
-
 	public JdbcDao actorDao() {
-		this.actorDao.setConnectionMaker(connectionMaker());
-		return this.actorDao;
+		this.actorJdbcDao.setDataSource(dataSource());
+		return this.actorJdbcDao;
 	}
 	
-	private ConnectionMaker connectionMaker() {
-		return new JdbcConnectionMaker();
+	public JdbcDao amsDao() {
+		this.amsJdbcDao.setDataSource(dataSource());
+		return this.amsJdbcDao;
+	}
+	
+	public JdbcDao m_PackageDao() {
+		this.m_PackageJdbcDao.setDataSource(dataSource());
+		return this.m_PackageJdbcDao;
+	}
+	
+	private DataSource dataSource() {
+		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+		dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
+		dataSource.setUrl("jdbc:mysql://localhost/xmlparse?useSSL=false");
+		dataSource.setUsername("root");
+		dataSource.setPassword("fuckingdba");
+		
+		return dataSource;
 	}
 }

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/com.springsource.org.junit-4.7.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/org.springframework.core-3.1.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-31/Libs/lib/org.springframework.test-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-examples-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-excelant-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-ooxml-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-ooxml-schemas-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/poi-scratchpad-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/ooxml-lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/ooxml-lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/poi-bin-3.17-beta1-20170701/poi-3.17-beta1/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-30/Lib/lib/org.springframework.jdbc-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-30/Lib/lib/org.springframework.transaction-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-30/Lib/lib/org.springframework.beans-3.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pandora/Desktop/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/toby/Vol1-30/Lib/lib/org.springframework.core-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

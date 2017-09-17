@@ -1,0 +1,4 @@
+no.1 C:\Users\pandora\Desktop\xml\M0008471LSG6574353-1498578227815.xml
+Data truncation: Data too long for column 'summary_Short' at row 1
+no.1 C:\Users\pandora\Desktop\xml\M0008471LSG6574353-1498578227815.xml
+Data truncation: Data too long for column 'summary_Short' at row 1
